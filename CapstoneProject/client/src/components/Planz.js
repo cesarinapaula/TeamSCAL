@@ -1,18 +1,19 @@
-import React from "react";
+import React from "react"
+import Chatterbox from "./Chatterbox"
 
 const Planz = () => (
   <div>
-    <h2> Planz Logo</h2>
+  {/* // <h2> Planz Logo</h2>
 
-    <p>Occasian Goes Here</p>
+  //   <p>Occasion Goes Here</p>
 
-    <p>Location:TBA</p>
-    <p>Time:TBA</p>
-    <p>DAte:TBA</p>
-    {"  "} 
+  //   <p>Location:TBA</p>
+  //   <p>Time:TBA</p>
+  //   <p>DAte:TBA</p>
+  //   {"  "}    */}
 
-<h2>Chatter Box</h2>
-<h2>Decide on a Plan(polls)</h2>
+<Chatterbox/>
+{/* <h2>Decide on a Plan(polls)</h2> */}
   </div>
 );
 
