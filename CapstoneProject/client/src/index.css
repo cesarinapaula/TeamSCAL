@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.chatterbox{
+  color:red;
+ 
+  }
+
+  .chatterlist{
+    word-wrap: break-word;
+    overflow: auto;
+    width: 30%;
+    height: 40vh;
+  }
+.comment{
+  list-style-type: none;
+}
