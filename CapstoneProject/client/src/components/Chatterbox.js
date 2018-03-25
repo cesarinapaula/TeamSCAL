@@ -1,75 +1,111 @@
-import React from "react";
-import ReactDom from "react-dom";
-import "../index.css";
 
+import React from 'react';
+import $ from "jquery";
 
-const generateId = () => {
-    return Math.random()
-      .toString(34)
-      .slice(2);
-  };
-  const ChatterWall = ({ handleSubmit, inputText, handleInputText }) => (
-    <div>
-      <h2>Issa Wall </h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={inputText} onChange={handleInputText} />
+const mainDivstyles = {
+  color: "black",
+  border: "solid",
+  marginTop: "1vh",
+  height: "70vh",
+  minHeight:"50vh",
+  overflow:"auto",
+  width:"25vw",
+  float:"left",
+  marginLeft:"3vw",
+  // overflow:"auto"
+}
+const divheaderstyles = {
+  textAlign:"center",
+  color: "brown",
+  //border: "solid",
+  width: "80%",
+  margin:"auto"
+}
+const chatterBoxstyles = {
+  color: "black",
+  fontColor:"black",
+  border: "solid",
+  borderColor:"green",
+  textAlign: "left",
+  padding:"3px",
+  width: "80%",
+  height: "60vh",
+  margin:"auto",
+  overflow:"auto",
+  maxHeight: "60vh"
+}
+const inputBoxstyles = {
+  color: "red",
+  //border: "solid",
+  width: "80%",
+  margin:"auto",
 
-        <button type="submit"> Post </button>
-      </form>
-    </div>
-  );
-  const Comment = ({ comment }) => <li className='comment'>{comment.text}</li>;
-
-  const ChatterList = ({ comments }) => (
-    <ul>{comments.map(comment => <Comment comment={comment} />)}</ul>
-  );
-  
-
-class Chatterbox extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            inputText:"",  
-                       
-            
-            name:"",
-            comments:[]            
-            
-        };
-    }
-    addComment = e => {
-        e.preventDefault();
-        const { comments, inputText,name } = this.state;
-        const newComment = { text: inputText, id: generateId() };
-        const newComments = [newComment,...comments ];
-        
-        this.setState({
-            inputText:"",
-            comments: newComments
-        });
-    };
-    handleInputText = e => {
-        this.setState({
-          inputText: e.target.value
-        });
-      };
-      render(){
-        const { inputText, comments } = this.state;
-        return(
-            <div className='chatterbox'>
-                <div className='ChatterWall'>
-                <ChatterWall 
-                handleSubmit={this.addComment}
-                inputText={inputText}
-                handleInputText={this.handleInputText}
-                />
-                </div>
-                <div className='chatterlist'>
-                <ChatterList comments={comments} />
-                </div>
-            </div>
-        )
-      }
 }
 
+const handleKeyPress = (event) => {
+  if (event.key === 'Enter') {
+    // var message = ($("#chatterBox3").text(($("#namebox").val())+": " + event.target.value))
+    var message = $("#namebox").val();
+    $("#chatterBox3").append(message + ": " + event.target.value + "<br>" );
+    event.target.value="";
+  }
+
+}
+
+(function poll() {
+    
+    setTimeout(function () {
+        $.ajax({
+            url: "http://localhost:3001",
+            type:"get",
+            success: function (data) {
+                
+                $("#chatterlist").html(("fasjdlkfa"))
+                
+                poll();
+            }
+        });
+    }, 10000);
+})();
+
+
+const makePost = e => {
+    e.preventDefault();
+    $.ajax({
+        url: "http://localhost:3001",
+        type:"post",
+        success: function (data) {
+            $("#chatterlist").html(("fasjdlkfa"))
+        }
+    })
+};
+
+
+
+//   const generateId = () => {
+    //       return Math.random()
+    //       .toString(34)
+    //       .slice(2);
+    //     };
+    
+const Chatterbox = () => {
+   return(    
+    <body style={{color:"mintgreen"}}>       
+    <div id = "mainDiv1" style={mainDivstyles}>
+        <div id = "divHeader2" style={divheaderstyles}>
+            Send your messages to the Chatterbox Wall below:
+        </div>
+        <div id="chatterBox3" style={chatterBoxstyles}>
+
+        </div>
+        <div id="textInputBox4" style={inputBoxstyles}>
+            <form id = "textInput">
+                <input type = "textarea" id = "namebox" placeholder="Name" style={{width:"25%", height:"3em", paddingTop:"1px", marginTop:"1vh"}}/>
+                <input type = "textarea" id= "messagebox" placeholder="Message" style={{width:"70%",height:"3em", marginTop:"1vh"}} onKeyPress={handleKeyPress}/>
+            </form>
+        </div>
+    </div>
+    </body>
+   )};
+    
 export default Chatterbox;
