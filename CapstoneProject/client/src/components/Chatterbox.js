@@ -1,11 +1,16 @@
-import React from "react";
+import React from 'react';
+import $ from "jquery";
+
 const mainDivstyles = {
   color: "black",
   border: "solid",
-  maxHeight:"50vh",
-  minHeight:"10vh",
+  marginTop: "1vh",
+  height: "70vh",
+  minHeight:"50vh",
   overflow:"auto",
-  maxWidth:"45vw",
+  width:"25vw",
+  float:"left",
+  marginLeft:"3vw",
   // overflow:"auto"
 }
 const divheaderstyles = {
@@ -16,13 +21,17 @@ const divheaderstyles = {
   margin:"auto"
 }
 const chatterBoxstyles = {
-  color: "darkgreen",
+  color: "black",
+  fontColor:"black",
   border: "solid",
+  borderColor:"green",
   textAlign: "left",
+  padding:"3px",
   width: "80%",
+  height: "60vh",
   margin:"auto",
   overflow:"auto",
-  maxHeight: "35vh"
+  maxHeight: "60vh"
 }
 const inputBoxstyles = {
   color: "red",
@@ -31,23 +40,70 @@ const inputBoxstyles = {
   margin:"auto",
 }
 
+const handleKeyPress = (event) => {
+  if (event.key === 'Enter') {
+    // var message = ($("#chatterBox3").text(($("#namebox").val())+": " + event.target.value))
+    var message = $("#namebox").val();
+    $("#chatterBox3").append(message + ": " + event.target.value + "<br>" );
+    event.target.value="";
+  }
+
+}
+
+(function poll() {
+    
+    setTimeout(function () {
+        $.ajax({
+            url: "http://localhost:3001",
+            type:"get",
+            success: function (data) {
+                
+                $("#chatterlist").html(("fasjdlkfa"))
+                
+                poll();
+            }
+        });
+    }, 10000);
+})();
 
 
-const Chatterbox = () => (
-  <div id = "mainDiv1" style={mainDivstyles}>
-    <div id = "divHeader2" style={divheaderstyles}>
-      Send your messages to the Chatterbox Wall below:
-    </div>
-    <div id="chatterBox3" style={chatterBoxstyles}>
-fas
-    </div>
-    <div id="textInputBox4" style={inputBoxstyles}>
-      <form id = "textInput">
-        <input type = "textarea" placeholder="Name" style={{width:"20%"}}/>
-        <input type = "textarea" placeholder="Message" style={{width:"73%"}}/>
-      </form>
-    </div>
-  </div>
-);
+const makePost = e => {
+    e.preventDefault();
+    $.ajax({
+        url: "http://localhost:3001",
+        type:"post",
+        success: function (data) {
+            $("#chatterlist").html(("fasjdlkfa"))
+        }
+    })
+};
 
+
+
+//   const generateId = () => {
+    //       return Math.random()
+    //       .toString(34)
+    //       .slice(2);
+    //     };
+    
+const Chatterbox = () => {
+   return(    
+    <body style={{color:"mintgreen"}}>       
+    <div id = "mainDiv1" style={mainDivstyles}>
+        <div id = "divHeader2" style={divheaderstyles}>
+            Send your messages to the Chatterbox Wall below:
+        </div>
+        <div id="chatterBox3" style={chatterBoxstyles}>
+
+        </div>
+        <div id="textInputBox4" style={inputBoxstyles}>
+            <form id = "textInput">
+                <input type = "textarea" id = "namebox" placeholder="Name" style={{width:"25%", height:"3em", paddingTop:"1px", marginTop:"1vh"}}/>
+                <input type = "textarea" id= "messagebox" placeholder="Message" style={{width:"70%",height:"3em", marginTop:"1vh"}} onKeyPress={handleKeyPress}/>
+            </form>
+        </div>
+    </div>
+    </body>
+   )};
+    
 export default Chatterbox;
