@@ -1,3 +1,4 @@
+
 import React from 'react';
 import $ from "jquery";
 
@@ -39,6 +40,7 @@ const inputBoxstyles = {
   //border: "solid",
   width: "80%",
   margin:"auto",
+
 }
 
 const handleKeyPress = (event) => {

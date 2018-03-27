@@ -1,3 +1,4 @@
+
 import React from "react"
 import Chatterbox from "./Chatterbox"
 
@@ -11,8 +12,6 @@ const pollsStyle = {
   maxWidth:"40vw", 
   
 }
-
-
 
 const Planz = () => (
 <div style = {{textAlign:"center"}}>
@@ -30,6 +29,7 @@ const Planz = () => (
       </div>
 </div>
 </div>
+
 
 );
 
