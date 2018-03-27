@@ -9,13 +9,14 @@ const pollsStyle = {
   float: "right",
   marginRight:"33vw",
   maxWidth:"40vw", 
+  
 }
 
 
 
 const Planz = () => (
 <div style = {{textAlign:"center"}}>
-<h2> Planz Logo</h2>
+<h1> Planz Logo </h1>
     <p>Occasion Goes Here</p>
     <p>Location:TBA</p>
     <p>Time:TBA</p>
@@ -24,9 +25,9 @@ const Planz = () => (
 <div>
 <Chatterbox/>
 
-            <div style={pollsStyle} >
-            <h2>Decide on a Plan(polls)</h2>
-            </div>
+      <div style={pollsStyle} >
+          <p style={{fontSize:"3vh"}}>Decide on a Plan(polls)</p>
+      </div>
 </div>
 </div>
 

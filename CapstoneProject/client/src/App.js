@@ -6,7 +6,9 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Polls from "./components/Polls";
 import Planz from "./components/Planz";
-
+import idtest from "./components/idtest";
+//make the planz exact path be the index for all the planz made.
+//make a second component for planz index
 
 
 const App = () => (
@@ -20,8 +22,10 @@ const App = () => (
     
     <div>
         <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
-        <Route path="/planz" component={Planz} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/planz" component={Planz} />
+        <Route path="/planz/:idtest" component={idtest} />
+
     </div>
   </div>
 );

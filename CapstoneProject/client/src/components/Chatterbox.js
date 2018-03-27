@@ -5,7 +5,7 @@ const mainDivstyles = {
   color: "black",
   border: "solid",
   marginTop: "1vh",
-  height: "70vh",
+  height: "60vh",
   minHeight:"50vh",
   overflow:"auto",
   width:"25vw",
@@ -18,7 +18,8 @@ const divheaderstyles = {
   color: "brown",
   //border: "solid",
   width: "80%",
-  margin:"auto"
+  margin:"auto",
+  fontSize:"3vh"
 }
 const chatterBoxstyles = {
   color: "black",
@@ -28,7 +29,7 @@ const chatterBoxstyles = {
   textAlign: "left",
   padding:"3px",
   width: "80%",
-  height: "60vh",
+  height: "35vh",
   margin:"auto",
   overflow:"auto",
   maxHeight: "60vh"
@@ -47,22 +48,20 @@ const handleKeyPress = (event) => {
     $("#chatterBox3").append(message + ": " + event.target.value + "<br>" );
     event.target.value="";
   }
-
 }
 
 (function poll() {
     
     setTimeout(function () {
-        $.ajax({
-            url: "http://localhost:3001",
-            type:"get",
-            success: function (data) {
-                
-                $("#chatterlist").html(("fasjdlkfa"))
-                
-                poll();
-            }
-        });
+        fetch('http://localhost:3001/')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data);
+            })
+            .catch(function(errhnd) {
+            });
     }, 10000);
 })();
 
