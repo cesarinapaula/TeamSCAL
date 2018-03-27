@@ -20,4 +20,5 @@ class idtest extends Component {
   }
 }
 
+fsdafa
 export default idtest;
