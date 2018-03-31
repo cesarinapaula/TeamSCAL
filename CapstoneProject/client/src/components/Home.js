@@ -23,7 +23,7 @@ const Home = () => (
   </div>
 );
 
-fdsaf
+// fdsaf
 {
   /* // POST /api/planz
       // GET  /api/planz/1

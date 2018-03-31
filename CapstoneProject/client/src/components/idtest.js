@@ -20,5 +20,5 @@ class idtest extends Component {
   }
 }
 
-fsdafa
+// fsdafa
 export default idtest;

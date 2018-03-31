@@ -8,6 +8,6 @@ const Polls = () => (
   </div>
   
 );
-fdsaf
+// fdsaf
 
 export default Polls;
