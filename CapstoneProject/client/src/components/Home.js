@@ -35,7 +35,7 @@ return(
 </div>
 <main>
   <div>
-    <div className ="ui fluid continer" style={{backgroundImage:'url(https://i.imgur.com/NxYGaZY.jpg)', width:'100%',height:'600px', backgroundSize:'cover', backgroundRepeat:'no-repeat' }}>
+    <div className ="ui fluid continer" style={{backgroundImage:'url(https://i.imgur.com/uU5O8nU.png)', width:'100%',height:'600px', backgroundSize:'cover', backgroundRepeat:'no-repeat' }}>
       <div className = "ui container">
         <div style={{backgroundColor:'white', height: '2px'}}></div>
         <br/>
@@ -50,12 +50,6 @@ return(
         <br/>
         <div style={{textAlign:'center'}} className="submit_plan">
         <Button style={{color:'black'}}inverted color="grey" size="big">Plan It!</Button>
-        </div>
-        <div className="speech_bub" floated left>
-           <img src= "https://i.imgur.com/CRrZkFr.png" style={{width: '10em', marginTop:'4em', marginLeft:'10em'}}/>
-        </div>
-        <div className="speech_bub" floated right>
-           <img src= "https://i.imgur.com/I3jUMca.png" style={{width: '14em', marginTop:'-10em', marginLeft:'70vw'}}/>
         </div>
           <div className ="ui container doubling stackable two column grid">
             <div className ="two column row" style={{minHeight:'400px'}}>
