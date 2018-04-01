@@ -15,7 +15,7 @@ return(
     <div id="Navbar">
       <div className ="ui inverted text attached menu">
         <div className ="ui container nav-wrapper">
-        <img src= "http://svgur.com/i/5x0.svg" style={{width: '7em'}}/>
+        <img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/>
           <div className ="right menu">
             <div className ="item">
               <Button className ="ui inverted button">
@@ -40,7 +40,7 @@ return(
         <div style={{backgroundColor:'white', height: '2px'}}></div>
         <br/>
         <div style={{textAlign:'center'}}className="header" >
-        <img src= "http://svgur.com/i/644.svg" style={{width: '25em'}}/>
+        <img src= "https://i.imgur.com/7Vzviab.png" style={{width: '25em'}}/>
          {/* <h1 style={{textAlign:'center', lineHeight:'7vh', fontSize:'40px', textShadow:'black 1px '}}>Got Planz?</h1> */}
         </div>
         <br/>
