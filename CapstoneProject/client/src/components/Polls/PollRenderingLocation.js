@@ -18,6 +18,3 @@ export default class RenderLocationPoll extends React.Component{
     )
 }
 }
-
-
-//export default = { RenderLocationPoll, RenderTimeDatePoll}

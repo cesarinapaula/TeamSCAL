@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import RenderTimeDatePoll from './PollRendering';
 
-//will convert into stateless component, nevermind if need axios, needs state.
 class GetTimeDatePoll extends React.Component {
     constructor(){
         super();

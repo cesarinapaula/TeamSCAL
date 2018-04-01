@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-//import uuid from 'uuid';
-//import { Redirect } from "react-router";
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
 

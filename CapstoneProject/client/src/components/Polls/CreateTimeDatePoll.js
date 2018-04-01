@@ -1,14 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-//import { Redirect } from "react-router";
 import './index.css';
-
-//need to do a style display or visibility, tertinary / conditional  ANSWER: display
-// const message = this.state.Hidden === true ? <style display:none> : <style display: inline-block>
-//need to figure out a way to create optional add on fields, is that more display/visibility ANSWER: display
-//const optional = this.state.{something here} === true ? <style display:none> 
-//added this.state.Hidden because it's optional
-//form in stateful component, as recommended
 
 class CreateTimeAndDate extends React.Component{
     constructor(){
