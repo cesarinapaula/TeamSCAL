@@ -17,3 +17,244 @@ body {
 .comment{
   list-style-type: none;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.chatterbox{
+  color:red;
+ 
+  }
+
+  .chatterlist{
+    word-wrap: break-word;
+    overflow: auto;
+    width: 30%;
+    height: 40vh;
+  }
+.comment{
+  list-style-type: none;
+}
+
+/* Asiya Css WILL HAVE TO EDIT THIS SHIT PLZ BEAR W ME */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  width: 100%;
+
+}
+
+div {
+  display: block;
+}
+
+#Navbar {
+  background-color: rgb(55, 55, 56);
+}
+
+.ui.attached.inverted.menu {
+  border: none;
+}
+
+.ui.attached.menu:not(.tabular) {
+  border: 1px solid #d4d4d5;
+}
+.ui.inverted.text.menu, .ui.inverted.text.menu .item, .ui.inverted.text.menu .item:hover, .ui.inverted.text.menu .active.item {
+  background-color: transparent !important;
+}
+
+.ui.text.attached.menu {
+  box-shadow: none;
+}
+.ui.attached.menu {
+  top: 0px;
+  bottom: 0px;
+  border-radius: 0px;
+  margin: 0em -1px;
+  width: calc(100% + 2px );
+  max-width: calc(100% + 2px );
+  box-shadow: none;
+}
+
+.ui.inverted.menu {
+  border: 0px solid transparent;
+  background: #1b1c1d;
+  box-shadow: none;
+}
+
+.ui.menu {
+  display: flex;
+  margin: 1rem 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  font-weight: normal;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+  min-height: 2.85714286em;
+}
+
+.ui.menu>.grid, .ui.menu>.container {
+  display: flex;
+  align-items: inherit;
+  flex-direction: inherit;
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px){
+.ui.container {
+    width: 723px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+}
+
+.ui.container {
+  display: block;
+  max-width: 100% !important;
+}
+.nav-wrapper {
+  height: 60px;
+}
+
+.ui.text.menu .item {
+  border-radius: 0px;
+  box-shadow: none;
+  align-self: center;
+  margin: 0em 0em;
+  padding: 0.35714286em 0.5em;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.1s ease;
+}
+
+.ui.menu:not(.vertical) .item {
+  display: flex;
+  align-items: center;
+}
+
+.ui.menu .item {
+  position: relative;
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
+  user-select: none;
+  background: none;
+  padding: 0.92857143em 1.14285714em;
+  text-transform: none;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: normal;
+  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+}
+
+.ui.inverted.button {
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  background: transparent none;
+  color: #ffffff;
+  text-shadow: none !important;
+}
+
+.ui.fluid.container {
+  width: 100%;
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px){
+.ui.container {
+    width: 723px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+}
+.ui.container {
+  display: block;
+  max-width: 100% !important;
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+
+
+.ui.container {
+    width: 723px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+}
+.ui.container {
+  display: block;
+  max-width: 100% !important;
+}
+.ui.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding: 0em;
+}
+
+.ui.grid {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.ui.grid>.row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: inherit;
+  align-items: stretch;
+  width: 100% !important;
+  padding: 0rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+
+.ui[class*="middle aligned"].grid>.column:not(.row), .ui[class*="middle aligned"].grid>.row>.column, .ui.grid>[class*="middle aligned"].row>.column, .ui.grid>[class*="middle aligned"].column:not(.row), .ui.grid>.row>[class*="middle aligned"].column {
+  flex-direction: column;
+  vertical-align: middle;
+  align-self: center !important;
+}
+
+.ui.grid>[class*="two column"].row>.column {
+  width: 50% !important;
+}
+
+.ui.grid>.row>.column {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.ui.grid>.column:not(.row), .ui.grid>.row>.column {
+  position: relative;
+  display: inline-block;
+  width: 6.25%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  vertical-align: top;
+}
+
+.ui.grid>.row>img, .ui.grid>.row>.column>img {
+  max-width: 100%;
+}
+
+
+img.ui.image {
+  display: block;
+}
+
+.ui.image {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  background-color: transparent;
+}
+

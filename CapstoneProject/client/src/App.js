@@ -11,13 +11,6 @@ import Planz from "./components/Planz";
 
 const App = () => (
   <div>
-
-  <Link  to="/">Home</Link>
-      {"  "} 
-
-  <Link to="/login">Login/Sign In</Link>
-      {"  "}
-    
     <div>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
