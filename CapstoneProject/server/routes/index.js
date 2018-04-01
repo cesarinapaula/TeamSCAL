@@ -11,7 +11,7 @@ conStr += '@localhost:5432/capstoneproject';
 var db = pgp(conStr);
 
 //Convert into prepared statements.
-/* GET home page. Just template shit*/
+
 router.get('/', function(req, res, next) {
   res.render('index', { title: `Planz' backend shit.` });
 });
