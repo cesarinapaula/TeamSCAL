@@ -40,7 +40,7 @@ return(
         <div style={{backgroundColor:'white', height: '2px'}}></div>
         <br/>
         <div style={{textAlign:'center'}}className="header" >
-        <img src= "http://svgur.com/i/644.svg" style={{width: '25em'}}/>
+        <img src= "https://i.imgur.com/7Vzviab.png" style={{width: '25em'}}/>
          {/* <h1 style={{textAlign:'center', lineHeight:'7vh', fontSize:'40px', textShadow:'black 1px '}}>Got Planz?</h1> */}
         </div>
         <br/>
