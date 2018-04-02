@@ -49,54 +49,12 @@ class CreateTimeAndDate extends React.Component{
 
 //too many handleChoice, need the universal one
     
-    handleChoice1 = event => {
+    handleChoice = event => {
         this.setState({
-            ChoiceOne: event.target.value
-        });
-        
-    }
-    handleChoice2 = event => {
-        this.setState({
-            ChoiceTwo: event.target.value
+            [event.target.name]: event.target.value
         });
     };
-
-    handleChoice3 = event => {
-        this.setState({
-            ChoiceThree: event.target.value
-        });
-    };
-    handleChoice4 = event => {
-        this.setState({
-            ChoiceFour: event.target.value
-        });
-    };
-    handleChoice5 = event => {
-        this.setState({
-            ChoiceFive: event.target.value
-        });
-    };
-
-    handleChoice5 = event => {
-        this.setState({
-            ChoiceFive: event.target.value
-        });
-    };
-    handleChoice6 = event => {
-        this.setState({
-            ChoiceSix: event.target.value
-        });
-    };
-    handleChoice7 = event => {
-        this.setState({
-            ChoiceSeven: event.target.value
-        });
-    };
-    handleChoice8 = event => {
-        this.setState({
-            ChoiceEight: event.target.value
-        });
-    };
+   
 
 
    // handleStateUpdate= ()=> {
@@ -145,15 +103,15 @@ class CreateTimeAndDate extends React.Component{
         return (
             <div style = {pollsStyleDT}>
                 Enter Your Date and Time Suggestions Below:<br/>
-                Enter Your First Choice: <input type='calendar' onInput={this.handleChoice1} placeholder="Choice One" /><br/>
-                Enter Your Second Choice: <input type='calendar' onInput={this.handleChoice2} placeholder="Choice Two" /><br/>
+                Enter Your First Choice: <input type='calendar' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
+                Enter Your Second Choice: <input type='calendar' name ="ChoiceTwo"onInput={this.handleChoice} placeholder="Choice Two" /><br/>
                 Would You Like To Input More Choices?
-                <label>Enter Your Third Choice: <input type='text' onInput={this.handleChoice3} placeholder="Choice Three"/></label><br/>
-                <label>Enter Your Fourth Choice: <input type='text' onInput={this.handleChoice4} placeholder="Choice Four"/></label><br/>
-                <label>Enter Your Five Choice: <input type='text' onInput={this.handleChoice5} placeholder="Choice Five"/></label><br/>
-                <label>Enter Your Sixth Choice: <input type='text' onInput={this.handleChoice5} placeholder="Choice Five"/></label><br/>
-                <label>Enter Your Seventh Choice: <input type='text' onInput={this.handleChoice5} placeholder="Choice Five"/></label><br/>
-                <label>Enter Your Eighth Choice: <input type='text' onInput={this.handleChoice5} placeholder="Choice Five"/></label><br/>
+                <label>Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/></label><br/>
+                <label>Enter Your Fourth Choice: <input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Choice Four"/></label><br/>
+                <label>Enter Your Five Choice: <input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
+                <label>Enter Your Sixth Choice: <input type='text' name ="ChoiceSix" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
+                <label>Enter Your Seventh Choice: <input type='text' name ="ChoiceSeven" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
+                <label>Enter Your Eighth Choice: <input type='text' name ="ChoiceEight" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
 
                 <button onClick={this.handleSubmit}>Submit Your Poll!</button>
                     

@@ -47,34 +47,13 @@ class CreateLocation extends React.Component{
     }
 
     //reduce to handleChoice, event.target.name
-    handleChoice1 = event => {
-        this.setState({
-            ChoiceOne: event.target.value
-        });
-        console.log(this.state.ChoiceOne)
-        
+    handleChoice = e => {
+        this.setState({ 
+            [e.target.name]: e.target.value 
+        });   
+        console.log(this.state)
     }
-    handleChoice2 = event => {
-        this.setState({
-            ChoiceTwo: event.target.value
-        });
-    };
-
-    handleChoice3 = event => {
-        this.setState({
-            ChoiceThree: event.target.value
-        });
-    };
-    handleChoice4 = event => {
-        this.setState({
-            ChoiceFour: event.target.value
-        });
-    };
-    handleChoice5 = event => {
-        this.setState({
-            ChoiceFive: event.target.value
-        });
-    };
+  
 
     handleSubmitToDatabase = (event)=>{
         axios
@@ -172,11 +151,11 @@ render(){
             <div id={formStyling} style = {pollsStyleLoc}>
                 <br/>
                 <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
-                Enter Your First Choice: <input type='text' onInput={this.handleChoice1} placeholder="Choice One" /><br/>
-                Enter Your Second Choice: <input type='text' onInput={this.handleChoice2} placeholder="Choice Two" /><br/>
-                Enter Your Third Choice: <input type='text' onInput={this.handleChoice3} placeholder="Choice Three"/><br/>
-                Enter Your Fourth Choice: <input type='text' onInput={this.handleChoice4} placeholder="Choice Four"/><br/>
-                Enter Your Fifth Choice: <input type='text' onInput={this.handleChoice5} placeholder="Choice Five"/><br/>
+                Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
+                Enter Your Second Choice: <input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Choice Two" /><br/>
+                Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/><br/>
+                Enter Your Fourth Choice: <input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Choice Four"/><br/>
+                Enter Your Fifth Choice: <input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Choice Five"/><br/>
             
                <button onClick={this.handleSubmitToDatabase}>Create Your Poll!</button>
             </div>
