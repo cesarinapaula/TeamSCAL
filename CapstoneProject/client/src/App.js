@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import Chatterbox from "./components/Chatterbox";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Polls from "./components/Polls";
 import Planz from "./components/Planz";
 import idtest from "./components/idtest";
 import Timer from "./components/Timer";
@@ -14,13 +13,6 @@ import Timer from "./components/Timer";
 
 const App = () => (
   <div>
-
-  <Link  to="/">Home</Link>
-      {"  "} 
-
-  <Link to="/login">Login/Sign In</Link>
-      {"  "}
-    
     <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />

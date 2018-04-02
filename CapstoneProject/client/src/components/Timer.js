@@ -36,7 +36,11 @@ class Timer extends Component {
         <div>
           {" "}
           Timer <br />
-          Use MM/DD/YYYY format<br />
+          Type in date and time when you'd like the poll to close.
+          <br/>
+          <br/>
+          <strong>Please use Military Time for most accurate timer</strong>
+          <br />
           <br />
         </div>
         <div>
@@ -56,7 +60,8 @@ class Timer extends Component {
               type="text area"
               value={this.state.endTimeInput}
               onChange={this.handleChange}
-              placeholder="Countdown to date"
+              placeholder="MM/DD/YY XX:XX"
+              style = {{width: "25vw"}}
             />
             <input type="submit" />
           </form>
@@ -66,7 +71,8 @@ class Timer extends Component {
   }
 
   updateClock = () => {
-    var t = this.state.endtime - (Date.now()+(1000*3600));
+    // +(1000*3600)
+    var t = this.state.endtime - (Date.now());
     this.setState({
       seconds: Math.floor((t / 1000) % 60),
       minutes: Math.floor((t / 1000 / 60) % 60),

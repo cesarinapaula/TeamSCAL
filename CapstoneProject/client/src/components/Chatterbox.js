@@ -9,10 +9,11 @@ const mainDivstyles = {
   height: "60vh",
   minHeight:"50vh",
   overflow:"auto",
-  width:"25vw",
-  float:"left",
-  marginLeft:"3vw",
-  // overflow:"auto"
+  width:"33%",
+//   float:"left",
+//   marginLeft:"3vw",
+  position:"absolute",
+//   margin:"auto"
 }
 const divheaderstyles = {
   textAlign:"center",
@@ -68,31 +69,19 @@ const handleKeyPress = (event) => {
 })();
 
 
-const makePost = e => {
-    e.preventDefault();
-    $.ajax({
-        url: "http://localhost:3001",
-        type:"post",
-        success: function (data) {
-            $("#chatterlist").html(("fasjdlkfa"))
-        }
-    })
-};
+// const makePost = e => {
+//     e.preventDefault();
+//     $.ajax({
+//         url: "http://localhost:3001",
+//         type:"post",
+//         success: function (data) {
+//             $("#chatterlist").html(("fasjdlkfa"))
+//         }
+//     })
+// };
 
-// fasdf
-
-
-
-
-//   const generateId = () => {
-    //       return Math.random()
-    //       .toString(34)
-    //       .slice(2);
-    //     };
-    
 const Chatterbox = () => {
    return(    
-    <body style={{color:"mintgreen"}}>       
     <div id = "mainDiv1" style={mainDivstyles}>
         <div id = "divHeader2" style={divheaderstyles}>
             Send your messages to the Chatterbox Wall below:
@@ -107,7 +96,7 @@ const Chatterbox = () => {
             </form>
         </div>
     </div>
-    </body>
-   )};
+   )
+};
     
 export default Chatterbox;
