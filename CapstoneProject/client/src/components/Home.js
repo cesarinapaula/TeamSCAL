@@ -4,12 +4,14 @@ import Login from "./Login";
 import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
 
+const mainpagestyle = {
+  color:(201,254,255),
+}
+
 class Home extends Component {
 render() {
-
-
 return(
-<div className = "container">
+<div className = "container" style ={mainpagestyle}>
 <div id= "MainLayout">
   <header>
     <div id="Navbar">
@@ -49,7 +51,7 @@ return(
         </div>
         <br/>
         <div style={{textAlign:'center'}} className="submit_plan">
-        <Button style={{color:'black'}}inverted color="grey" size="big">Plan It!</Button>
+        <Button style={{color:'black'}}inverted color="grey" size="big"><Link to="/planz">Plan It!</Link></Button>
         </div>
           <div className ="ui container doubling stackable two column grid">
             <div className ="two column row" style={{minHeight:'400px'}}>
@@ -70,8 +72,12 @@ return(
           <img src="https://i.imgur.com/cBbyXiV.jpg" style={{float:'left', width:'200px',borderRadius:'50%'}}/>
             </div>
           <div style={{color:'white'}}className="column">
-          <h2>Make Planz</h2>
-          <p>Type your plan name, and click on the Plan it button!</p>
+          <h2>Make Your Plans Into Planz</h2>
+          <p>Type your plan name and press the "Plan It" button. 
+             You will be redirected to your Planz Page, where you can set up
+             a poll, invite friends using your unique url, and also chat 
+             directly through the page.
+          </p>
           </div>
           </div>
           <div className="middle aligned two column row" style={{marginBottom:'25px'}}>
@@ -80,7 +86,10 @@ return(
           </div>
           <div style={{color:'white'}} className="column">
           <h2>Create a Poll</h2>
-          <p>Say no to indecisiveness </p>          
+          <p> Use our polling feature to set a occasion/location, and the date 
+            and time of the event. Set a timer on the poll to speed up the process
+            of coming to a decision. Once the timer ends, and the votes are in, Planz information
+            will be updated automagically!</p>          
           </div>
           </div>
           <div className="middle aligned two column row" style={{marginBottom:'25px'}}>
@@ -89,7 +98,9 @@ return(
           </div>
           <div style={{color:'white'}} className="column">
           <h2>Share with friends!</h2>
-          <p>Say no to indecisiveness </p>          
+          <p> Share your unique url to the people you wish to invite.
+            By doing this you allow friends to add options for polls, and
+            vote on them.</p>          
           </div>
           </div>
           </div>
@@ -99,9 +110,11 @@ return(
           </div>
           </div>
           </div>
+          
 </main>
+<div style={{backgroundColor:'#C9FEFF', height: '2px'}}></div>
 <footer>
-  <div style={{backgroundColor:'#C7FFFE', height:'4em', fontSize:'15px'}} id="Footer">
+  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px'}} id="Footer">
     <div className="item">
     <a href="/"><span>About Us</span></a>
     </div>

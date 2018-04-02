@@ -2,45 +2,46 @@
 import React from 'react';
 import $ from "jquery";
 
-const mainDivstyles = {
-  color: "black",
-  border: "solid",
-  marginTop: "1vh",
-  height: "70vh",
-  minHeight:"50vh",
-  overflow:"auto",
-  width:"25vw",
-  float:"left",
-  marginLeft:"3vw",
-  // overflow:"auto"
-}
-const divheaderstyles = {
-  textAlign:"center",
-  color: "brown",
-  //border: "solid",
-  width: "80%",
-  margin:"auto"
-}
-const chatterBoxstyles = {
-  color: "black",
-  fontColor:"black",
-  border: "solid",
-  borderColor:"green",
-  textAlign: "left",
-  padding:"3px",
-  width: "80%",
-  height: "60vh",
-  margin:"auto",
-  overflow:"auto",
-  maxHeight: "60vh"
-}
-const inputBoxstyles = {
-  color: "red",
-  //border: "solid",
-  width: "80%",
-  margin:"auto",
+// const mainDivstyles = {
 
-}
+//   color: "black",
+//   border: "solid",
+//   marginTop: "1vh",
+//   height: "70vh",
+//   minHeight:"50vh",
+//   overflow:"auto",
+//   width:"25vw",
+//   float:"left",
+//   marginLeft:"3vw",
+//   // overflow:"auto"
+// }
+// const divheaderstyles = {
+//   textAlign:"center",
+//   color: "brown",
+//   //border: "solid",
+//   width: "80%",
+//   margin:"auto"
+// }
+// const chatterBoxstyles = {
+//   color: "black",
+//   fontColor:"black",
+//   border: "solid",
+//   borderColor:"green",
+//   textAlign: "left",
+//   padding:"3px",
+//   width: "80%",
+//   height: "60vh",
+//   margin:"auto",
+//   overflow:"auto",
+//   maxHeight: "60vh"
+// }
+// const inputBoxstyles = {
+//   color: "red",
+//   //border: "solid",
+//   width: "80%",
+//   margin:"auto",
+
+// }
 
 const handleKeyPress = (event) => {
   if (event.key === 'Enter') {
@@ -89,23 +90,23 @@ const makePost = e => {
     //     };
     
 const Chatterbox = () => {
-   return(    
-    <body style={{color:"mintgreen"}}>       
-    <div id = "mainDiv1" style={mainDivstyles}>
-        <div id = "divHeader2" style={divheaderstyles}>
-            Send your messages to the Chatterbox Wall below:
+   return(   
+    <div className="container"> 
+    <div id = "mainDiv1" >
+        <div id = "divHeader2" >
+            Wall
         </div>
-        <div id="chatterBox3" style={chatterBoxstyles}>
+        <div id="chatterBox3" style={{backgroundColor:'red'}}>
 
         </div>
-        <div id="textInputBox4" style={inputBoxstyles}>
+        <div id="textInputBox4" >
             <form id = "textInput">
                 <input type = "textarea" id = "namebox" placeholder="Name" style={{width:"25%", height:"3em", paddingTop:"1px", marginTop:"1vh"}}/>
                 <input type = "textarea" id= "messagebox" placeholder="Message" style={{width:"70%",height:"3em", marginTop:"1vh"}} onKeyPress={handleKeyPress}/>
             </form>
         </div>
     </div>
-    </body>
+    </div>
    )};
     
 export default Chatterbox;
