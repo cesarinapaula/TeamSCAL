@@ -1,4 +1,5 @@
 
+
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
 import { Icon,Accordion,Grid,Button, Segment, Menu, Divider} from 'semantic-ui-react';
@@ -130,6 +131,9 @@ return(
 )
 }
 }
+
+
+);
 
 
 

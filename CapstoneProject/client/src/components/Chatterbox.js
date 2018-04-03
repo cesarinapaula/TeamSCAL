@@ -2,7 +2,47 @@
 import React from 'react';
 import $ from "jquery";
 
-// const mainDivstyles = {
+
+const mainDivstyles = {
+  color: "black",
+  border: "solid",
+  marginTop: "1vh",
+  height: "60vh",
+  minHeight:"50vh",
+  overflow:"auto",
+  width:"33%",
+//   float:"left",
+//   marginLeft:"3vw",
+  position:"absolute",
+//   margin:"auto"
+}
+const divheaderstyles = {
+  textAlign:"center",
+  color: "brown",
+  //border: "solid",
+  width: "80%",
+  margin:"auto",
+  fontSize:"3vh"
+}
+const chatterBoxstyles = {
+  color: "black",
+  fontColor:"black",
+  border: "solid",
+  borderColor:"green",
+  textAlign: "left",
+  padding:"3px",
+  width: "80%",
+  height: "35vh",
+  margin:"auto",
+  overflow:"auto",
+  maxHeight: "60vh"
+}
+const inputBoxstyles = {
+  color: "red",
+  //border: "solid",
+  width: "80%",
+  margin:"auto",
+
 
 //   color: "black",
 //   border: "solid",
@@ -50,51 +90,41 @@ const handleKeyPress = (event) => {
     $("#chatterBox3").append(message + ": " + event.target.value + "<br>" );
     event.target.value="";
   }
-
 }
 
 (function poll() {
     
     setTimeout(function () {
-        $.ajax({
-            url: "http://localhost:3001",
-            type:"get",
-            success: function (data) {
-                
-                $("#chatterlist").html(("fasjdlkfa"))
-                
-                poll();
-            }
-        });
+        fetch('http://localhost:3001/')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data);
+            })
+            .catch(function(errhnd) {
+            });
     }, 10000);
 })();
 
 
-const makePost = e => {
-    e.preventDefault();
-    $.ajax({
-        url: "http://localhost:3001",
-        type:"post",
-        success: function (data) {
-            $("#chatterlist").html(("fasjdlkfa"))
-        }
-    })
-};
+// const makePost = e => {
+//     e.preventDefault();
+//     $.ajax({
+//         url: "http://localhost:3001",
+//         type:"post",
+//         success: function (data) {
+//             $("#chatterlist").html(("fasjdlkfa"))
+//         }
+//     })
+// };
 
-
-
-//   const generateId = () => {
-    //       return Math.random()
-    //       .toString(34)
-    //       .slice(2);
-    //     };
-    
 const Chatterbox = () => {
-   return(   
-    <div className="container"> 
-    <div id = "mainDiv1" >
-        <div id = "divHeader2" >
-            Wall
+   return(    
+    <div id = "mainDiv1" style={mainDivstyles}>
+        <div id = "divHeader2" style={divheaderstyles}>
+            Send your messages to the Chatterbox Wall below:
+
         </div>
         <div id="chatterBox3" style={{backgroundColor:'red'}}>
 
@@ -106,7 +136,8 @@ const Chatterbox = () => {
             </form>
         </div>
     </div>
-    </div>
-   )};
+   )
+};
+
     
 export default Chatterbox;
