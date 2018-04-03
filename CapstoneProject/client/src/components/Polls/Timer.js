@@ -30,6 +30,9 @@ class Timer extends Component {
   };
 
   render() {
+    // const {timerStyle} = this.props;
+    // console.log("this is props: ");
+    // console.log(this.props.timerStyle)
     var { days, hours, minutes, seconds } = this.state;
     return (
       <div>

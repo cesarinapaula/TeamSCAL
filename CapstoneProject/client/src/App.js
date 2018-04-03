@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Planz from "./components/Planz";
 import idtest from "./components/idtest";
-import Timer from "./components/Timer";
+import Timer from "./components/Polls/Timer";
 //make the planz exact path be the index for all the planz made.
 //make a second component for planz index
 

@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
+import Timer from "./Timer";
 
+/*
 const pollsStyleLoc = {
     alignContent:"center", 
     marginTop:'1vh', 
@@ -15,7 +17,7 @@ const pollsStyleLoc = {
     maxWidth:"40vw",
     paddingBottom:"4vh" 
   }
-
+*/
 class CreateLocation extends React.Component{
     constructor(){
         super();
@@ -32,9 +34,10 @@ class CreateLocation extends React.Component{
             VoterAnswer: '',
             formHidden: false,
             pollHidden: true,
+            timerHidden: true,
             message: true,
-            renderSubmitButton: false,
-            BaseValue: 0
+            BaseValue: 0,
+            TimerCountdownLoc:"",
         };
     }
     
@@ -56,6 +59,8 @@ class CreateLocation extends React.Component{
   
 
     handleSubmitToDatabase = (event)=>{
+        event.preventDefault();
+        /*
         axios
         .post("http://localhost:3000/createpolllocation", {
             uniquelink: this.state.uniquelink,
@@ -68,18 +73,20 @@ class CreateLocation extends React.Component{
         }
         )
         .then(response => {
-            console.log(response);
+            console.log(response);  */
             this.setState({
                 formHidden: true,
-                pollHidden: false
+                pollHidden: false,
+                timerHidden:false
             });
             console.log(this.state);        
-
+/*
         })
         .catch(function(err) {
             console.log(err);
         });   
-};
+*/
+    };
 
 handleSelect = (event)=>{
     this.setState({
@@ -119,25 +126,27 @@ handleSubmitVote=()=>{
 };
 
     submitVote=()=>{
-    axios.put(`http://localhost:3000/votinglocation/${this.state.uniquelink}`, {
+/*    axios.put(`http://localhost:3000/votinglocation/${this.state.uniquelink}`, {
         voteranswer: this.state.VoterAnswer
     })
     .then(response=>{
         console.log(response);
-        console.log('inserted');
+        console.log('inserted');  */
         this.setState({
             message: false,
             BaseValue: this.state.BaseValue + 1
         });
+    /*
     })
     .catch(err=>{
         console.log(err);
-    });
+    }); */
     };
 //<p> Would you like to submit, another disappear function.
 //this.handleNo = p= #id = disappear
 render(){
         const formStyling = (this.state.formHidden ? 'hidden' : 'appear');
+        const timerStyling = (this.state.timerHidden ? 'hidden' : 'appear');
         const pollStyling = (this.state.pollHidden ? 'hidden' : 'appear');
         const messageStyling = (this.state.message ? 'hidden' : 'appear');
         const ChoiceThreeRender = (this.state.ChoiceThree === null ? 'hidden' : 'appear');
@@ -148,7 +157,7 @@ render(){
 //disable input field if previous values are === '', or null...what's better practice?
         return (
             <div>
-            <div id={formStyling} style = {pollsStyleLoc}>
+            <div id={formStyling}>
                 <br/>
                 <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
                 Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
@@ -156,13 +165,15 @@ render(){
                 Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/><br/>
                 Enter Your Fourth Choice: <input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Choice Four"/><br/>
                 Enter Your Fifth Choice: <input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Choice Five"/><br/>
-            
-               <button onClick={this.handleSubmitToDatabase}>Create Your Poll!</button>
+                
+                Set a timer for your Poll:<br/>
+                Format time in military time and date as shown<br/>
+                <input type='text' name = "TimerCountdownLoc" onInput={this.handleChoice} placeholder="MM/DD/YY XX:XX"/><br/>
+                <button onClick={this.handleSubmitToDatabase}>Create Your Poll!</button>
             </div>
             
             <RenderLocationPoll
                 pollStyle={pollStyling}
-                style={pollsStyleLoc}
                 questionLocation={this.state.QuestionInput}
                     choiceOne={this.state.ChoiceOne}
                     choiceTwo={this.state.ChoiceTwo}
@@ -176,7 +187,10 @@ render(){
                     hiddenOrAppear4={ChoiceFourRender}
                     hiddenOrAppear5={ChoiceFiveRender}
                 />
-        
+            <div id = {timerStyling}>    
+            <Timer
+                />
+            </div>
             <div>
             <br/>
             <p id={messageStyling}>You've selected: {this.state.SelectedValue}</p>
@@ -188,3 +202,5 @@ render(){
 
 
 export default CreateLocation;
+
+//                style={pollsStyleLoc}
