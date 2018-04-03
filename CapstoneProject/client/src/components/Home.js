@@ -10,6 +10,8 @@ const mainpagestyle = {
 
 class Home extends Component {
 render() {
+  
+
 return(
 <div className = "container" style ={mainpagestyle}>
 <div id= "MainLayout">
