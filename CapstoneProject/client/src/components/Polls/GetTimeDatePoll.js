@@ -36,6 +36,7 @@ class GetTimeDatePoll extends React.Component {
 //in the render, based on the state, then if(redirect) { return <CreatePoll/> } else return <GetPoll/>
 //the answer will be an array, so array of this.state.choices: ''
         componentDidMount= ()=> {
+            
             axios.get(`http://localhost:3000/checkingtimeanddate/${this.state.uniquelink}`)
             .then(response => {
                 this.setState({
