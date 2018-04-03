@@ -1,11 +1,13 @@
 import React from 'react';
+import Timer from "./Timer";
 
 
 class RenderTimeDatePoll extends React.Component{
     render(){
-        const { pollStyle, questionTimeDate, choiceOne, choiceTwo, choiceThree, choiceFour, choiceFive, choiceSix, choiceSeven, choiceEight, handleSelect, handleSubmit, submitVote, hiddenOrAppear3, hiddenOrAppear4, hiddenOrAppear5, hiddenOrAppear6, hiddenOrAppear7, hiddenOrAppear8} = this.props;
+        const { pollStyle, timerStyle, questionTimeDate, choiceOne, choiceTwo, choiceThree, choiceFour, choiceFive, choiceSix, choiceSeven, choiceEight, handleSelect, handleSubmit, submitVote, hiddenOrAppear3, hiddenOrAppear4, hiddenOrAppear5, hiddenOrAppear6, hiddenOrAppear7, hiddenOrAppear8} = this.props;
 
         return(
+        <div>
             <div id={pollStyle}>
                 <p>Poll: {questionTimeDate}</p>
                 <label><input type='radio' value={choiceOne} onChange={this.handleSelect}/>{choiceOne}</label><br/>
@@ -19,6 +21,10 @@ class RenderTimeDatePoll extends React.Component{
                 <button onClick={handleSubmit}>Pick Your Vote</button>
                 <button onClick={submitVote}>Final Answer?</button>
             </div>
+            <div id = {timerStyle}>
+            <Timer/>
+            </div>
+        </div>
         )
     }
 }

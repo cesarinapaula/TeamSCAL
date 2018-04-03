@@ -187,10 +187,6 @@ render(){
                     hiddenOrAppear4={ChoiceFourRender}
                     hiddenOrAppear5={ChoiceFiveRender}
                 />
-            <div id = {timerStyling}>    
-            <Timer
-                />
-            </div>
             <div>
             <br/>
             <p id={messageStyling}>You've selected: {this.state.SelectedValue}</p>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import CreateLocation from "./CreateLocationPoll";
+import '../../index.css';
 
 class Timer extends Component {
   state = {
@@ -30,13 +32,11 @@ class Timer extends Component {
   };
 
   render() {
-    // const {timerStyle} = this.props;
-    // console.log("this is props: ");
-    // console.log(this.props.timerStyle)
+    const {timerStyle} = this.props;
     var { days, hours, minutes, seconds } = this.state;
     return (
-      <div>
-        <div>
+      <div >
+        <div id = {timerStyle}>
           {" "}
           Timer <br />
           Type in date and time when you'd like the poll to close.
