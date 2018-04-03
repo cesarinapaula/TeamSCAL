@@ -3,6 +3,9 @@
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
 import { Icon,Accordion,Grid,Button, Segment, Menu, Divider, Header} from 'semantic-ui-react';
+import CreateLocation from "./Polls/CreateLocationPoll"
+import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
+
 
 const pollsStyle = {
   alignContent:"center", 
