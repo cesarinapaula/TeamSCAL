@@ -10,7 +10,7 @@ const mainDivstyles = {
   height: "60vh",
   minHeight:"50vh",
   overflow:"auto",
-  width:"33%",
+  minWidth:"20vw",
 //   float:"left",
 //   marginLeft:"3vw",
   position:"absolute",
@@ -19,7 +19,7 @@ const mainDivstyles = {
 const divheaderstyles = {
   textAlign:"center",
   color: "brown",
-  //border: "solid",
+//   border: "solid",
   width: "80%",
   margin:"auto",
   fontSize:"3vh"
@@ -27,7 +27,7 @@ const divheaderstyles = {
 const chatterBoxstyles = {
   color: "black",
   fontColor:"black",
-  border: "solid",
+//   border: "solid",
   borderColor:"green",
   textAlign: "left",
   padding:"3px",
@@ -35,14 +35,15 @@ const chatterBoxstyles = {
   height: "35vh",
   margin:"auto",
   overflow:"auto",
-  maxHeight: "60vh"
+  maxHeight: "40vh"
 }
 const inputBoxstyles = {
   color: "red",
-  //border: "solid",
+//   border: "solid",
   width: "80%",
   margin:"auto",
 }
+
 
 //   color: "black",
 //   border: "solid",
@@ -82,7 +83,8 @@ const inputBoxstyles = {
 //   margin:"auto",
 
 // }
-*/
+*/ 
+
 const handleKeyPress = (event) => {
   if (event.key === 'Enter') {
     // var message = ($("#chatterBox3").text(($("#namebox").val())+": " + event.target.value))
@@ -90,6 +92,9 @@ const handleKeyPress = (event) => {
     $("#chatterBox3").append(message + ": " + event.target.value + "<br>" );
     event.target.value="";
   }
+// //   $("#chatterbox3").scrollTop = 
+//   console.log($("#chatterbox3").scrollTop)
+// Here I'd like to figure out how to make chatterbox stay at the bottom of the chat log.
 }
 
 (function poll() {
@@ -129,7 +134,7 @@ const Chatterbox = () => {
             Send your messages to the Chatterbox Wall below:
 
         </div>
-        <div id="chatterBox3" style={{backgroundColor:'red'}}>
+        <div id="chatterBox3" style={chatterBoxstyles}>
 
         </div>
         <div id="textInputBox4" >
