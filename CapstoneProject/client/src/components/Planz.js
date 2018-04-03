@@ -2,9 +2,10 @@
 
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
-import { Icon,Accordion,Grid,Button, Segment, Menu, Divider} from 'semantic-ui-react';
-import CreateLocation from "./Polls/CreateLocationPoll";
-import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll";
+import { Icon,Accordion,Grid,Button, Segment, Menu, Divider, Header} from 'semantic-ui-react';
+import CreateLocation from "./Polls/CreateLocationPoll"
+import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
+
 
 const pollsStyle = {
   alignContent:"center", 
@@ -31,7 +32,7 @@ render() {
 const { activeIndex } = this.state;
 
 return(
-<div className="ui container" style={{ width:'100%', height:'100%'}}>
+<div className="ui container planz" style={{ width:'100%', height:'100%'}}>
 <header>
     <div id="Navbar">
       <div className ="ui inverted text attached menu">
@@ -54,23 +55,10 @@ return(
     </div>
   </header>
 <main>
-<Grid>
-<Grid.Row columns={2}>
-<Grid.Column className="ui centered aligned grid" width={5}>
-<div className ="ui container plan info">
-<div id="planzInfo">
-  <Menu fluid vertical>
-          <Menu.Item className='header'>Plan Name</Menu.Item>
-          <Menu.Item>Occasion/Location: TBD</Menu.Item>
-          <Menu.Item>Date: TBD</Menu.Item>
-          <Menu.Item>Time: TBD</Menu.Item>
-  </Menu>
-</div>
-</div>
-</Grid.Column>
-</Grid.Row>
-<Grid.Column className="ui centered aligned grid"  width={5}>
-<div className ="ui container poll" style={{alignContent:'center'}}>
+<div className ="ui container plan info"/>
+<h1 style={{textAlign:'center'}}>Plan Name</h1>
+<div className="ui container">
+<div className ="ui container poll" style={{textAlign:'center'}}>
 <div className ="poll accordian">
 <Accordion styled>
         <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
@@ -101,27 +89,16 @@ return(
         </Accordion>
 </div>
 </div>
-</Grid.Column>
-<div>
-  {/* <Chatterbox/> */}
-</div>
-  
             {/* <div style={pollsStyle} >
             <h2>Decide on a Plan(polls)</h2>
             </div> */}
-</Grid>
-<div className="ui container" style={{float:'left', marginTop:'-20em'}}>
-    <div className ="ui card" >
-      <div className="ui feed">
-        <div className="event thread-post">
-          <div className="content thread-post__container">
+<div className="ui fluid container"style={{marginTop:'-12em'}} >
+    <div className ="ui card" style={{width:'30em',marginLeft:'2em'}}>
               <div className="text extra thread-post__content">
               <Chatterbox/>
-
               </div>
-        </div>
-      </div>
-    </div>
+
+</div>
 </div>
 </div>
 </main>
