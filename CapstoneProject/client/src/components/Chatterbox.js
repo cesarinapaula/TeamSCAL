@@ -45,6 +45,46 @@ const inputBoxstyles = {
 }
 
 
+//   color: "black",
+//   border: "solid",
+//   marginTop: "1vh",
+//   height: "70vh",
+//   minHeight:"50vh",
+//   overflow:"auto",
+//   width:"25vw",
+//   float:"left",
+//   marginLeft:"3vw",
+//   // overflow:"auto"
+// }
+// const divheaderstyles = {
+//   textAlign:"center",
+//   color: "brown",
+//   //border: "solid",
+//   width: "80%",
+//   margin:"auto"
+// }
+// const chatterBoxstyles = {
+//   color: "black",
+//   fontColor:"black",
+//   border: "solid",
+//   borderColor:"green",
+//   textAlign: "left",
+//   padding:"3px",
+//   width: "80%",
+//   height: "60vh",
+//   margin:"auto",
+//   overflow:"auto",
+//   maxHeight: "60vh"
+// }
+// const inputBoxstyles = {
+//   color: "red",
+//   //border: "solid",
+//   width: "80%",
+//   margin:"auto",
+
+// }
+*/ 
+
 const handleKeyPress = (event) => {
   if (event.key === 'Enter') {
     // var message = ($("#chatterBox3").text(($("#namebox").val())+": " + event.target.value))
