@@ -2,7 +2,7 @@
 import React from 'react';
 import $ from "jquery";
 
-
+/*
 const mainDivstyles = {
   color: "black",
   border: "solid",
@@ -42,7 +42,7 @@ const inputBoxstyles = {
   //border: "solid",
   width: "80%",
   margin:"auto",
-
+}
 
 //   color: "black",
 //   border: "solid",
@@ -82,7 +82,7 @@ const inputBoxstyles = {
 //   margin:"auto",
 
 // }
-
+*/
 const handleKeyPress = (event) => {
   if (event.key === 'Enter') {
     // var message = ($("#chatterBox3").text(($("#namebox").val())+": " + event.target.value))
@@ -119,10 +119,13 @@ const handleKeyPress = (event) => {
 //     })
 // };
 
+//For time being, took out styles,  4/2
+
 const Chatterbox = () => {
    return(    
-    <div id = "mainDiv1" style={mainDivstyles}>
-        <div id = "divHeader2" style={divheaderstyles}>
+    <div className="container">
+    <div id = "mainDiv1">
+        <div id = "divHeader2">
             Send your messages to the Chatterbox Wall below:
 
         </div>
@@ -135,6 +138,7 @@ const Chatterbox = () => {
                 <input type = "textarea" id= "messagebox" placeholder="Message" style={{width:"70%",height:"3em", marginTop:"1vh"}} onKeyPress={handleKeyPress}/>
             </form>
         </div>
+    </div>
     </div>
    )
 };

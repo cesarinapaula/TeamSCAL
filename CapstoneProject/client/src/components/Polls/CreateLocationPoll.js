@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
 
+/*
 const pollsStyleLoc = {
     alignContent:"center", 
     marginTop:'1vh', 
@@ -15,7 +16,7 @@ const pollsStyleLoc = {
     maxWidth:"40vw",
     paddingBottom:"4vh" 
   }
-
+*/
 class CreateLocation extends React.Component{
     constructor(){
         super();
@@ -33,7 +34,6 @@ class CreateLocation extends React.Component{
             formHidden: false,
             pollHidden: true,
             message: true,
-            renderSubmitButton: false,
             BaseValue: 0
         };
     }
@@ -56,6 +56,8 @@ class CreateLocation extends React.Component{
   
 
     handleSubmitToDatabase = (event)=>{
+        event.preventDefault();
+        /*
         axios
         .post("http://localhost:3000/createpolllocation", {
             uniquelink: this.state.uniquelink,
@@ -68,18 +70,19 @@ class CreateLocation extends React.Component{
         }
         )
         .then(response => {
-            console.log(response);
+            console.log(response);  */
             this.setState({
                 formHidden: true,
                 pollHidden: false
             });
             console.log(this.state);        
-
+/*
         })
         .catch(function(err) {
             console.log(err);
         });   
-};
+*/
+    };
 
 handleSelect = (event)=>{
     this.setState({
@@ -119,20 +122,21 @@ handleSubmitVote=()=>{
 };
 
     submitVote=()=>{
-    axios.put(`http://localhost:3000/votinglocation/${this.state.uniquelink}`, {
+/*    axios.put(`http://localhost:3000/votinglocation/${this.state.uniquelink}`, {
         voteranswer: this.state.VoterAnswer
     })
     .then(response=>{
         console.log(response);
-        console.log('inserted');
+        console.log('inserted');  */
         this.setState({
             message: false,
             BaseValue: this.state.BaseValue + 1
         });
+    /*
     })
     .catch(err=>{
         console.log(err);
-    });
+    }); */
     };
 //<p> Would you like to submit, another disappear function.
 //this.handleNo = p= #id = disappear
@@ -148,7 +152,7 @@ render(){
 //disable input field if previous values are === '', or null...what's better practice?
         return (
             <div>
-            <div id={formStyling} style = {pollsStyleLoc}>
+            <div id={formStyling}>
                 <br/>
                 <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
                 Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
@@ -162,7 +166,6 @@ render(){
             
             <RenderLocationPoll
                 pollStyle={pollStyling}
-                style={pollsStyleLoc}
                 questionLocation={this.state.QuestionInput}
                     choiceOne={this.state.ChoiceOne}
                     choiceTwo={this.state.ChoiceTwo}
@@ -188,3 +191,5 @@ render(){
 
 
 export default CreateLocation;
+
+//                style={pollsStyleLoc}
