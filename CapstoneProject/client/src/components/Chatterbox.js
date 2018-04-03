@@ -1,6 +1,8 @@
 
 import React from 'react';
 import $ from "jquery";
+import { Form, Button } from 'semantic-ui-react';
+
 
 /*
 const mainDivstyles = {
@@ -134,14 +136,16 @@ const Chatterbox = () => {
             Send your messages to the Chatterbox Wall below:
 
         </div>
-        <div id="chatterBox3" style={chatterBoxstyles}>
+        <div id="chatterBox3">
 
         </div>
         <div id="textInputBox4" >
-            <form id = "textInput">
-                <input type = "textarea" id = "namebox" placeholder="Name" style={{width:"25%", height:"3em", paddingTop:"1px", marginTop:"1vh"}}/>
-                <input type = "textarea" id= "messagebox" placeholder="Message" style={{width:"70%",height:"3em", marginTop:"1vh"}} onKeyPress={handleKeyPress}/>
-            </form>
+            <Form>
+            <Form.Group>
+                <Form.Input id = "namebox" placeholder="Name" width={5} style={{ paddingTop:"1px", marginTop:"50vh"}}/>
+                <Form.Input id= "messagebox" placeholder="Message" width={12} style={{ marginTop:"50vh"}} onKeyPress={handleKeyPress}/>
+            </Form.Group>
+            </Form>
         </div>
     </div>
     </div>
