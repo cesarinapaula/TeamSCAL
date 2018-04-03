@@ -22,6 +22,14 @@ body {
 .comment{
   list-style-type: none;
 }
+/* Poll rendering stuff */
+#hidden {
+  display: none
+}
+
+#appear {
+  display: inline
+}
 
 body {
   margin: 0;

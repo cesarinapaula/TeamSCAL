@@ -3,6 +3,8 @@
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
 import { Icon,Accordion,Grid,Button, Segment, Menu, Divider} from 'semantic-ui-react';
+import CreateLocation from "./Polls/CreateLocationPoll";
+import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll";
 
 const pollsStyle = {
   alignContent:"center", 
@@ -26,7 +28,7 @@ state = { activeIndex: 0 }
 }
 
 render() {
-const { activeIndex } = this.state
+const { activeIndex } = this.state;
 
 return(
 <div className="ui container" style={{ width:'100%', height:'100%'}}>
@@ -76,9 +78,7 @@ return(
           Location Poll
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 0}>
-          <p>
-            Poll goes in here
-          </p>
+          <CreateLocation />
         </Accordion.Content>
 
         <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
@@ -86,9 +86,7 @@ return(
           Date/Time Poll
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 1}>
-          <p>
-          Poll goes here
-          </p>
+          <CreateTimeDatePoll/>
         </Accordion.Content>
 
         <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>

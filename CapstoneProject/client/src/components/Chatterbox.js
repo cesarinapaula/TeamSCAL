@@ -2,7 +2,7 @@
 import React from 'react';
 import $ from "jquery";
 
-
+/*
 const mainDivstyles = {
   color: "black",
   border: "solid",
@@ -44,6 +44,47 @@ const inputBoxstyles = {
   margin:"auto",
 }
 
+
+//   color: "black",
+//   border: "solid",
+//   marginTop: "1vh",
+//   height: "70vh",
+//   minHeight:"50vh",
+//   overflow:"auto",
+//   width:"25vw",
+//   float:"left",
+//   marginLeft:"3vw",
+//   // overflow:"auto"
+// }
+// const divheaderstyles = {
+//   textAlign:"center",
+//   color: "brown",
+//   //border: "solid",
+//   width: "80%",
+//   margin:"auto"
+// }
+// const chatterBoxstyles = {
+//   color: "black",
+//   fontColor:"black",
+//   border: "solid",
+//   borderColor:"green",
+//   textAlign: "left",
+//   padding:"3px",
+//   width: "80%",
+//   height: "60vh",
+//   margin:"auto",
+//   overflow:"auto",
+//   maxHeight: "60vh"
+// }
+// const inputBoxstyles = {
+//   color: "red",
+//   //border: "solid",
+//   width: "80%",
+//   margin:"auto",
+
+// }
+*/ 
+
 const handleKeyPress = (event) => {
   if (event.key === 'Enter') {
     // var message = ($("#chatterBox3").text(($("#namebox").val())+": " + event.target.value))
@@ -83,10 +124,13 @@ const handleKeyPress = (event) => {
 //     })
 // };
 
+//For time being, took out styles,  4/2
+
 const Chatterbox = () => {
    return(    
-    <div id = "mainDiv1" style={mainDivstyles}>
-        <div id = "divHeader2" style={divheaderstyles}>
+    <div className="container">
+    <div id = "mainDiv1">
+        <div id = "divHeader2">
             Send your messages to the Chatterbox Wall below:
 
         </div>
@@ -99,6 +143,7 @@ const Chatterbox = () => {
                 <input type = "textarea" id= "messagebox" placeholder="Message" style={{width:"70%",height:"3em", marginTop:"1vh"}} onKeyPress={handleKeyPress}/>
             </form>
         </div>
+    </div>
     </div>
    )
 };
