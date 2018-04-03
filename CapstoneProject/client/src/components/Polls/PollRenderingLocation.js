@@ -13,7 +13,7 @@ export default class RenderLocationPoll extends React.Component{
             <label id={hiddenOrAppear4}><input type='radio' value={choiceFour} onChange={handleSelect}/>{choiceFour}</label><br/>
             <label id={hiddenOrAppear5}><input type='radio' value={choiceFive} onChange={handleSelect}/>{choiceFive}</label><br/>
             <button onClick={handleVote}>Vote</button>
-            <button onClick={submitVote}>Submit</button>
+            <button onClick={submitVote}>Final Answer?</button>
         </div>
     )
 }
