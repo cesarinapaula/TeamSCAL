@@ -18,11 +18,10 @@ const App = () => (
     <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/planz" component={Planz} />
+        <Route path="/planz/:uniqueurl" component={Planz} />
         <Route path="/planz/:idtest" component={idtest} />
         <Route path= "/planz/timer" component = {Timer}/>
         <Route path= "/aboutus" component = {AboutUs}/>
-
     </div>
   </div>
 );

@@ -1,16 +1,56 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
+const uuidv4 = require('uuid/v4');
+const uuidURL = uuidv4().replace(/-/gi, '');
 
 const mainpagestyle = {
   color:(201,254,255),
 }
 
 class Home extends Component {
+  constructor(){
+    super();
+    this.state = {
+      redirect: false,
+      captureURL: uuidURL,
+    }
+  }
+
+  handleEventName=(event)=>{
+    this.setState({
+        eventName: event.target.value
+    });
+  };
+
+
+  componentDidMount=()=>{
+    console.log(this.state);
+  };
+
+  handleSubmit=()=>{
+    this.setState({
+      redirect: true
+    });
+  };
+
 render() {
-  
+  const { redirect } = this.state;
+       
+         
+  if(redirect){
+      return(
+          <Redirect 
+              to={{
+              pathname: `/planz/${this.state.captureURL}`,
+              state: { redirect: false }            
+          
+          }} 
+          />
+      )
+  }
 
 return(
 <div className = "container" style ={mainpagestyle}>
@@ -53,7 +93,7 @@ return(
         </div>
         <br/>
         <div style={{textAlign:'center'}} className="submit_plan">
-        <Button style={{color:'black'}}inverted color="grey" size="big"><Link to="/planz">Plan It!</Link></Button>
+        <Button style={{color:'black'}}inverted color="grey" size="big" onClick={this.handleSubmit}><Link to="/planz">Plan It!</Link></Button>
         </div>
           <div className ="ui container doubling stackable two column grid">
             <div className ="two column row" style={{minHeight:'400px'}}>
