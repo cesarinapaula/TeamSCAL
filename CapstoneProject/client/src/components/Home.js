@@ -19,7 +19,7 @@ return(
     <div id="Navbar">
       <div className ="ui inverted text attached menu">
         <div className ="ui container nav-wrapper">
-        <img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/>
+        <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/></a>
           <div className ="right menu">
             <div className ="item">
               <Button className ="ui inverted button">
@@ -108,7 +108,7 @@ return(
           </div>
           <br/>
           <div style={{textAlign:'center'}}className="container">
-          <Button size="huge"> I'm Sold, Scroll me up so I can make Planz!</Button>
+          <a href="/"><Button size="huge"> I'm Sold, Scroll me up so I can make Planz!</Button></a>
           </div>
           </div>
           </div>
@@ -118,7 +118,7 @@ return(
 <footer>
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px'}} id="Footer">
     <div className="item">
-    <a href="/"><span>About Us</span></a>
+    <a href="/aboutus"><span>About Us</span></a>
     </div>
   </div>
 </footer>
