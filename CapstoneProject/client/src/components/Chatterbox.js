@@ -134,12 +134,11 @@ const Chatterbox = () => {
     <div id = "mainDiv1">
         <div id = "divHeader2">
             Send your messages to the Chatterbox Wall below:
-
         </div>
         <div id="chatterBox3">
-
         </div>
         <div id="textInputBox4" >
+        <div className ="input" style={{verticalAlign: 'top'}}>
             <Form>
             <Form.Group>
                 <Form.Input id = "namebox" placeholder="Name" width={5} style={{ paddingTop:"1px", marginTop:"50vh"}}/>
@@ -147,6 +146,7 @@ const Chatterbox = () => {
             </Form.Group>
             </Form>
         </div>
+    </div>
     </div>
     </div>
    )

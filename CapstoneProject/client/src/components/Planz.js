@@ -1,5 +1,3 @@
-
-
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
 import { Icon,Accordion,Grid,Button, Segment, Menu, Divider, Header} from 'semantic-ui-react';
@@ -93,8 +91,8 @@ return(
             <h2>Decide on a Plan(polls)</h2>
             </div> */}
 <div className="ui fluid container"style={{marginTop:'-12em'}} >
-    <div className ="ui card" style={{width:'30em',marginLeft:'2em'}}>
-              <div className="text extra thread-post__content">
+    <div className ="ui card" style={{width:'30em',marginLeft:'2em', maxHeight:'30em'}}>
+              <div className="text extra thread-post__content" style={{overflow:'scroll'}}>
               <Chatterbox/>
               </div>
 
