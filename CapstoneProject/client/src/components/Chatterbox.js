@@ -8,6 +8,7 @@ import { Form, Button } from 'semantic-ui-react';
 const mainDivstyles = {
   color: "black",
   border: "solid",
+  // opacity: "1",
   marginTop: "1vh",
   height: "60vh",
   minHeight:"50vh",

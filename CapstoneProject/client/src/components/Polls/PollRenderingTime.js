@@ -21,9 +21,9 @@ class RenderTimeDatePoll extends React.Component{
                 <button onClick={handleSubmit}>Pick Your Vote</button>
                 <button onClick={submitVote}>Final Answer?</button>
             </div>
-            <div id = {timerStyle}>
+            {/* <div id = {timerStyle}>
             <Timer/>
-            </div>
+            </div> */}
         </div>
         )
     }

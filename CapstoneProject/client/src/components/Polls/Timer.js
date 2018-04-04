@@ -15,7 +15,6 @@ class Timer extends Component {
   };
 
   componentDidMount() {}
-
   submitEndDate = event => {
     event.preventDefault();
     this.setState({
@@ -26,17 +25,16 @@ class Timer extends Component {
       this.updateClock();
     }, 500);
   };
-
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
-    const {timerStyle} = this.props;
+    const {timerStyling, timerStyle} = this.props;
     var { days, hours, minutes, seconds } = this.state;
     return (
-      <div >
-        <div id = {timerStyle}>
+      <div id = {timerStyle}>
+        <div>
           {" "}
           Timer <br />
           Type in date and time when you'd like the poll to close.
@@ -84,5 +82,6 @@ class Timer extends Component {
     });
   };
 }
+
 
 export default Timer;

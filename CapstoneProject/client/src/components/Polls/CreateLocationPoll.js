@@ -153,7 +153,7 @@ render(){
         const ChoiceFourRender = (this.state.ChoiceFour === null ? 'hidden' : 'appear');
         const ChoiceFiveRender = (this.state.ChoiceFive === null ? 'hidden' : 'appear');
 
- // const choiceThree = (this.state.Optional3 ? 'hidden' : 'appear');
+// const choiceThree = (this.state.Optional3 ? 'hidden' : 'appear');
 //disable input field if previous values are === '', or null...what's better practice?
         return (
             <div>
@@ -195,8 +195,4 @@ render(){
         )
     }
 }
-
-
 export default CreateLocation;
-
-//                style={pollsStyleLoc}
