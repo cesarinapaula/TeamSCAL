@@ -394,3 +394,16 @@ li {
 .alert-wrapper h4 {
   border-radius: 5px;
 } */
+  /* align-items: flex-start; */
+/* } */
+
+/* About us styling */
+.hAbout{
+  text-align: center;
+}
+#h1About{
+font-size: 50px;
+}
+#h2About{
+  font-size: 30px;
+  }

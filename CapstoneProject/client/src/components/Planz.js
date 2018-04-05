@@ -44,10 +44,18 @@ return(
               <Button className ="ui inverted button">Register</Button>
             </div>  
           </div>
+
         </div>
+        <div className ="item">
+          <Button className ="ui inverted button">
+          <span> Register</span>
+          </Button>
+        </div>  
       </div>
     </div>
-  </header>
+  </div>
+</div>
+</header>
 <main>
 <div className ="ui container plan info"/>
 <h1 style={{textAlign:'center'}}>Plan Name</h1>
