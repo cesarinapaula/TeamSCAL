@@ -26,12 +26,6 @@ state = { activeIndex: 0 }
     this.setState({ activeIndex: newIndex })
 }
 
-componentDidMount(){
-  axios.get(3000/planz/${this.props.params.uniqueurl})
-
-
-}
-
 render() {
 const { activeIndex } = this.state;
 
