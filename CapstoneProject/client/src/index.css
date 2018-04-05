@@ -285,3 +285,14 @@ img.ui.image {
   justify-content: flex-start;
   /* align-items: flex-start; */
 }
+
+/* About us styling */
+.hAbout{
+  text-align: center;
+}
+#h1About{
+font-size: 50px;
+}
+#h2About{
+  font-size: 30px;
+  }
