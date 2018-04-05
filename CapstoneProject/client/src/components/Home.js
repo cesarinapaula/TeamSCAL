@@ -62,14 +62,10 @@ return(
         <img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/>
           <div className ="right menu">
             <div className ="item">
-              <Button className ="ui inverted button">
-              <span> Sign In</span>
-              </Button>
+              <Button className ="ui inverted button"> Sign In</Button>
             </div>
             <div className ="item">
-              <Button className ="ui inverted button">
-              <span> Register</span>
-              </Button>
+              <Button className ="ui inverted button">Register</Button>
             </div>  
           </div>
         </div>

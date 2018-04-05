@@ -53,7 +53,7 @@ body {
   list-style-type: none;
 }
 
-/* Asiya Css WILL HAVE TO EDIT THIS SHIT PLZ BEAR W ME */
+/* Asiya Css WILL HAVE TO EDIT THIS PLZ BEAR W ME */
 
 body {
   margin: 0;
@@ -278,10 +278,119 @@ img.ui.image {
 .ui.container.poll{
   display: flex;
   justify-content: flex-end;
+
 }
 
-.ui.fluid.container {
+
+
+/* chatbox */
+
+.ui.container.planz.info {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui.container.chatterbox {
+  width: 70em;
   display: flex;
   justify-content: flex-start;
-  /* align-items: flex-start; */
+  margin-top: -30em;  
 }
+
+.input.chat{
+  border-color:white !important;
+  background-color: #434857 !important;
+  color: #ddd !important;
+}
+span {
+  background-color: white !important;
+  border-color: white!important;
+  color: #252830 !important;
+}
+
+p {
+  color: #ddd !important;
+}
+
+.wrapper {
+  margin: 0 auto;
+  margin-top: 100px;
+  padding-top: 5px;
+  border: 3px solid #E3F6F7;
+  border-radius: 3px;
+  width: 400px;
+  height: 630px;
+  background-color: #252830;
+  text-align: center;
+}
+.input,
+span {
+  margin-top: 16px !important;
+}
+li {
+  text-align: left;
+  list-style-type: none;
+  font-size: 13px;
+}
+.send-btn, .clear-chat {
+  background-color: #252830 !important;
+  color: #E3F6F7!important;
+  border: 1px solid !important;
+  border-color: #E3F6F7 !important;
+  margin-bottom: 10px;
+  border-radius: 4px !important;
+  text-align: center;
+
+}
+
+.title-wrapper {
+  margin: 0 auto;
+  margin-top: 200px;
+  width: 600px;
+  text-align: center;
+}
+.title-wrapper h1 {
+  font-size: 100px !important;
+  font-weight: 200;
+  border: 3px solid white;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-color: #252830;
+}
+#enter-btn {
+  border: 0px !important;
+}
+
+
+.messages {
+  margin: 10px;
+  padding-left: 5px;
+  border: 1px solid#E3F6F7;
+  border-radius: 4px;
+  height: 400px;
+  background-color: #434857;
+  opacity: 1.2;
+  color: white !important;
+  overflow: auto;
+  white-space: normal;
+  word-wrap: break-word;
+
+}
+
+.send-btn {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+/* .alert-wrapper {
+  margin: 0 auto;
+  margin-top: 10px;
+  border-left: 2px solid #1BC98E !important;
+  width: 206px;
+  text-align: center;
+}
+.alert-wrapper h4 {
+  border-radius: 5px;
+} */
