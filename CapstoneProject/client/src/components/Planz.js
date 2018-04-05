@@ -1,8 +1,6 @@
-
-
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
-import { Icon,Accordion,Grid,Button, Segment, Menu, Divider, Header} from 'semantic-ui-react';
+import { Icon,Accordion,Grid,Button, Segment, Menu, Divider, Header, Step} from 'semantic-ui-react';
 import CreateLocation from "./Polls/CreateLocationPoll"
 import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
 
@@ -34,15 +32,19 @@ const { activeIndex } = this.state;
 return(
 <div className="ui container planz" style={{ width:'100%', height:'100%'}}>
 <header>
-<div id="Navbar">
-  <div className ="ui inverted text attached menu">
-    <div className ="ui container nav-wrapper">
-    <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/></a>
-      <div className ="right menu">
-        <div className ="item">
-          <Button className ="ui inverted button">
-          <span> Sign In</span>
-          </Button>
+    <div id="Navbar">
+      <div className ="ui inverted text attached menu">
+        <div className ="ui container nav-wrapper">
+        <img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/>
+          <div className ="right menu">
+            <div className ="item">
+              <Button className ="ui inverted button"> Sign In</Button>
+            </div>
+            <div className ="item">
+              <Button className ="ui inverted button">Register</Button>
+            </div>  
+          </div>
+
         </div>
         <div className ="item">
           <Button className ="ui inverted button">
@@ -57,7 +59,30 @@ return(
 <main>
 <div className ="ui container plan info"/>
 <h1 style={{textAlign:'center'}}>Plan Name</h1>
-<div className="ui container">
+<div className ="ui container planz info" >
+<Step.Group ordered>
+    <Step>
+      <Step.Content>
+        <Step.Title>Location</Step.Title>
+        <Step.Description>TBD</Step.Description>
+      </Step.Content>
+    </Step>
+
+    <Step>
+      <Step.Content>
+        <Step.Title>Date/Time</Step.Title>
+        <Step.Description>TBD</Step.Description>
+      </Step.Content>
+    </Step>
+
+    <Step >
+      <Step.Content>
+        <Step.Title>Confirm Planz</Step.Title>
+      </Step.Content>
+    </Step>
+  </Step.Group>
+</div>
+<br/>
 <div className ="ui container poll" style={{textAlign:'center'}}>
 <div className ="poll accordian">
 <Accordion styled>
@@ -76,31 +101,16 @@ return(
         <Accordion.Content active={activeIndex === 1}>
           <CreateTimeDatePoll/>
         </Accordion.Content>
-
-        <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
-          <Icon name='dropdown' />
-          Other Poll
-        </Accordion.Title>
-        <Accordion.Content active={activeIndex === 2}>
-          <p>
-            Poll goes here
-          </p>
-        </Accordion.Content>
         </Accordion>
 </div>
 </div>
             {/* <div style={pollsStyle} >
             <h2>Decide on a Plan(polls)</h2>
             </div> */}
-<div className="ui fluid container"style={{marginTop:'-12em'}} >
-    <div className ="ui card" style={{width:'30em',marginLeft:'2em'}}>
-              <div className="text extra thread-post__content">
+<div className="ui container chatterbox" >
               <Chatterbox/>
-              </div>
+</div>
 
-</div>
-</div>
-</div>
 </main>
 </div>
 )
