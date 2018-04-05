@@ -1,7 +1,7 @@
 
 import React from 'react';
 import $ from "jquery";
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Input } from 'semantic-ui-react';
 
 
 
@@ -130,26 +130,42 @@ const handleKeyPress = (event) => {
 //For time being, took out styles,  4/2
 
 const Chatterbox = () => {
-   return(    
-    <div className="container">
-    <div id = "mainDiv1">
-        <div id = "divHeader2">
-            Send your messages to the Chatterbox Wall below:
-
+   return(  
+    <div>
+    <div className="wrapper">
+       <div className="fBase-ico">
+        <p><i className="fi-database small"></i>Powered by Planz</p>
+       </div>    
+      <div id="chatterBox3" class="messages">
+        <li>Planz-Team: Chat about those Planz!</li>
+        <li>Planz-Team: Or whatever else you're into</li>
+      </div>
+      <form>
+        <div className="row">
+          <div className="large-12 columns">
+            <div className="row collapse prefix-radius">
+              <div className="small-4 columns">
+              </div>
+              <div className="small-8 columns">
+                <Input inverted size={3}className ="input chat" id="namebox" type="text" placeholder="Enter a Username"/>
+              </div>
+          </div>
         </div>
-        <div id="chatterBox3">
-
+        <div className="row">
+          <div className="large-12 columns">
+            <label>
+              <Input inverted className ="input chat" id="messagebox" onKeyPress={handleKeyPress} placeholder="Enter a Message"></Input>
+            </label>
+          </div>
         </div>
-        <div id="textInputBox4" >
-            <Form>
-            <Form.Group>
-                <Form.Input id = "namebox" placeholder="Name" width={5} style={{ paddingTop:"1px", marginTop:"50vh"}}/>
-                <Form.Input id= "messagebox" placeholder="Message" width={12} style={{ marginTop:"50vh"}} onKeyPress={handleKeyPress}/>
-            </Form.Group>
-            </Form>
         </div>
+      </form>
+      <br/>
+      <Button  className="ui inverted tiny send-btn">Send</Button>
+      <Button className="ui inverted tiny  tiny clear-chat">Clear Chat</Button>
     </div>
     </div>
+ 
    )
 };
 
