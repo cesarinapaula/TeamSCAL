@@ -120,8 +120,7 @@ class Chatterbox extends Component {
 render(){
   console.log(this.state)
 
-
-  
+// fdsa
   return (
     <div>
       <div className="wrapper">
