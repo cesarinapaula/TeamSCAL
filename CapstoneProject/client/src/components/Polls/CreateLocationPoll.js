@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
+import Timer from "./Timer";
 import { Input, Button} from 'semantic-ui-react';
 
 /*
@@ -34,8 +35,10 @@ class CreateLocation extends React.Component{
             VoterAnswer: '',
             formHidden: false,
             pollHidden: true,
+            timerHidden: true,
             message: true,
-            BaseValue: 0
+            BaseValue: 0,
+            TimerCountdownLoc:"",
         };
     }
     
@@ -74,7 +77,8 @@ class CreateLocation extends React.Component{
             console.log(response);  */
             this.setState({
                 formHidden: true,
-                pollHidden: false
+                pollHidden: false,
+                timerHidden:false
             });
             console.log(this.state);        
 /*
@@ -143,13 +147,14 @@ handleSubmitVote=()=>{
 //this.handleNo = p= #id = disappear
 render(){
         const formStyling = (this.state.formHidden ? 'hidden' : 'appear');
+        const timerStyling = (this.state.timerHidden ? 'hidden' : 'appear');
         const pollStyling = (this.state.pollHidden ? 'hidden' : 'appear');
         const messageStyling = (this.state.message ? 'hidden' : 'appear');
         const ChoiceThreeRender = (this.state.ChoiceThree === null ? 'hidden' : 'appear');
         const ChoiceFourRender = (this.state.ChoiceFour === null ? 'hidden' : 'appear');
         const ChoiceFiveRender = (this.state.ChoiceFive === null ? 'hidden' : 'appear');
 
- // const choiceThree = (this.state.Optional3 ? 'hidden' : 'appear');
+// const choiceThree = (this.state.Optional3 ? 'hidden' : 'appear');
 //disable input field if previous values are === '', or null...what's better practice?
         return (
             <div>
@@ -157,15 +162,18 @@ render(){
                 <strong><h3>Poll Creation For Location: </h3>
                 <Input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/>
                 <br/>
-                Enter your choices below!
-                <br/>
-                <Input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here" /><br/>
-                <Input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
-                <Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here"/><br/>
-                <Input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here"/><br/>
-                <Input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here"/><br/>
-                <br/>
-               <Button onClick={this.handleSubmitToDatabase}>Create Your Poll!</Button>
+                <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
+                Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
+                Enter Your Second Choice: <input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Choice Two" /><br/>
+                Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/><br/>
+                Enter Your Fourth Choice: <input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Choice Four"/><br/>
+                Enter Your Fifth Choice: <input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Choice Five"/><br/>
+                
+                Set a timer for your Poll:<br/>
+                Format time in military time and date as shown<br/>
+                <input type='text' name = "TimerCountdownLoc" onInput={this.handleChoice} placeholder="MM/DD/YY XX:XX"/><br/>
+                <button onClick={this.handleSubmitToDatabase}>Create Your Poll!</button>
+
             </div>
             
             <RenderLocationPoll
@@ -183,7 +191,6 @@ render(){
                     hiddenOrAppear4={ChoiceFourRender}
                     hiddenOrAppear5={ChoiceFiveRender}
                 />
-        
             <div>
             <br/>
             <p id={messageStyling}>You've selected: {this.state.SelectedValue}</p>
@@ -192,8 +199,4 @@ render(){
         )
     }
 }
-
-
 export default CreateLocation;
-
-//                style={pollsStyleLoc}

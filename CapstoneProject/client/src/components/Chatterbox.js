@@ -110,10 +110,17 @@ class Chatterbox extends Component {
         chatMessages: [...chatMessages, message]
       })
       event.target.value="";
-
-
+    }
   }
-}
+
+  handleButtonClick = (event) => {
+      this.setState({
+        chatMessages: []
+      })
+  }
+  
+
+
 render(){
   console.log(this.state)
 
@@ -149,12 +156,13 @@ render(){
           </div>
         </form>
         <br />
-        <Button className="ui inverted tiny  tiny clear-chat">Clear Chat</Button>
+        <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleButtonClick} id="clearchat">Clear Chat</Button>
+
       </div>
     </div>
   )
 }
-  
+
 }
 
 
@@ -177,7 +185,8 @@ render(){
 
 (function poll() {
 
-  setTimeout(function () {
+  setInterval(function () {
+
     fetch('http://localhost:3001/')
       .then(function (response) {
         return response.json();
@@ -186,6 +195,8 @@ render(){
         console.log(data);
       })
       .catch(function (errhnd) {
+        console.log("there's nothing to see here")
+
       });
   }, 10000);
 })();
