@@ -118,6 +118,7 @@ class Chatterbox extends Component {
         chatMessages: []
       })
   }
+  
 
 render(){
   console.log(this.state)
