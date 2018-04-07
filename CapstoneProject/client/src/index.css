@@ -5,17 +5,17 @@ body {
 }
 
 #root {
-  background-image: url('https://i.imgur.com/78Jg5hj.png');
- background-size: cover;
- background-repeat: no-repeat;
-min-height: 800px;
+background-image: url('https://i.imgur.com/78Jg5hj.png');
+background-size: cover;
+background-repeat: no-repeat;
+min-height: 1100px;
 }
 .chatterbox{
   color:red;
  
   }
 
-  .chatterlist{
+.chatterlist{
     word-wrap: break-word;
     overflow: auto;
     width: 30%;
@@ -119,13 +119,6 @@ div {
   flex-direction: inherit;
 }
 
-@media only screen and (max-width: 991px) and (min-width: 768px){
-.ui.container {
-    width: 723px;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-}
 
 .ui.container {
   display: block;
@@ -190,15 +183,6 @@ div {
   max-width: 100% !important;
 }
 
-@media only screen and (max-width: 991px) and (min-width: 768px) {
-
-
-.ui.container {
-    width: 723px;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-}
 .ui.container {
   display: block;
   max-width: 100% !important;
@@ -275,28 +259,37 @@ img.ui.image {
 
 /* planz page stuff */
 
-.ui.container.poll{
-  display: flex;
-  justify-content: flex-end;
+/* .ui.container.poll{
+  margin-right: 4em;
 
-}
+} */
 
 
 
 /* chatbox */
+
+.chat-poll {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .ui.container.planz.info {
   width: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .ui.container.chatterbox {
-  width: 70em;
+  /* width: 50em;
+  height: 50em;
   display: flex;
   justify-content: flex-start;
-  margin-top: -30em;  
+  align-items: flex-start;
+  margin-top: -49em;  
+  position: absolute; */
 }
 
 .input.chat{
@@ -316,13 +309,12 @@ p {
 
 .wrapper {
   margin: 0 auto;
-  margin-top: 100px;
   padding-top: 5px;
-  border: 3px solid #E3F6F7;
-  border-radius: 3px;
+  border: 4px solid #E3F6F7;
+  border-radius: 4px;
   width: 400px;
   height: 630px;
-  background-color: #252830;
+  background-color: #252830;opacity: 0.9;
   text-align: center;
 }
 .input,

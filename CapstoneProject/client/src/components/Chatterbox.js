@@ -1,7 +1,7 @@
 
 import React from 'react';
 import $ from "jquery";
-import { Form, Button, Input } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 
 
 /*
@@ -132,8 +132,8 @@ const Chatterbox = () => {
    return(  
     <div>
     <div className="wrapper">
-       <div className="fBase-ico">
-        <p><i className="fi-database small"></i>Powered by Planz</p>
+       <div className="chat header">
+        <p><i className="chat name"></i>Powered by Planz</p>
        </div>    
       <div id="chatterBox3" class="messages">
         <li>Planz-Team: Chat about those Planz!</li>
