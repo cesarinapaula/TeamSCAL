@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
@@ -45,8 +45,9 @@ render() {
           <Redirect 
               to={{
               pathname: `/planz/${this.state.captureURL}`,
-              state: { redirect: false }            
-          
+              // // state: { redirect: false }            
+              // state: { }            
+                          
           }} 
           />
       )
@@ -59,7 +60,7 @@ return(
     <div id="Navbar">
       <div className ="ui inverted text attached menu">
         <div className ="ui container nav-wrapper">
-        <img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/>
+        <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/></a>
           <div className ="right menu">
             <div className ="item">
               <Button className ="ui inverted button"> Sign In</Button>
@@ -89,7 +90,7 @@ return(
         </div>
         <br/>
         <div style={{textAlign:'center'}} className="submit_plan">
-        <Button style={{color:'black'}}inverted color="grey" size="big" onClick={this.handleSubmit}><Link to="/planz">Plan It!</Link></Button>
+        <Button style={{color:'black'}}inverted color="grey" size="big" onClick={this.handleSubmit}> Plan It!</Button>
         </div>
           <div className ="ui container doubling stackable two column grid">
             <div className ="two column row" style={{minHeight:'400px'}}>
@@ -144,7 +145,7 @@ return(
           </div>
           <br/>
           <div style={{textAlign:'center'}}className="container">
-          <Button size="huge"> I'm Sold, Scroll me up so I can make Planz!</Button>
+          <a href="/"><Button size="huge"> I'm Sold, Scroll me up so I can make Planz!</Button></a>
           </div>
           </div>
           </div>
@@ -154,7 +155,7 @@ return(
 <footer>
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px'}} id="Footer">
     <div className="item">
-    <a href="/"><span>About Us</span></a>
+    <a href="/aboutus"><span>About Us</span></a>
     </div>
   </div>
 </footer>
