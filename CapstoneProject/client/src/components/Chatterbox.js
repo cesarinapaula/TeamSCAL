@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import $ from "jquery";
-import { Form, Button, Input } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 import axios from "axios"
 import { render } from "react-dom";
-
-
-
 
 
 /*
@@ -206,6 +203,46 @@ render(){
 // };
 
 //For time being, took out styles,  4/2
+
+const Chatterbox = () => {
+   return(  
+    <div>
+    <div className="wrapper">
+       <div className="chat header">
+        <p><i className="chat name"></i>Powered by Planz</p>
+       </div>    
+      <div id="chatterBox3" class="messages">
+        <li>Planz-Team: Chat about those Planz!</li>
+        <li>Planz-Team: Or whatever else you're into</li>
+      </div>
+      <form>
+        <div className="row">
+          <div className="large-12 columns">
+            <div className="row collapse prefix-radius">
+              <div className="small-4 columns">
+              </div>
+              <div className="small-8 columns">
+                <Input inverted size={3}className ="input chat" id="namebox" type="text" placeholder="Enter a Username"/>
+              </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="large-12 columns">
+            <label>
+              <Input inverted className ="input chat" id="messagebox" onKeyPress={handleKeyPress} placeholder="Enter a Message"></Input>
+            </label>
+          </div>
+        </div>
+        </div>
+      </form>
+      <br/>
+      <Button  className="ui inverted tiny send-btn">Send</Button>
+      <Button className="ui inverted tiny  tiny clear-chat">Clear Chat</Button>
+    </div>
+    </div>
+ 
+   )
+};
 
 
 
