@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
+import { Input, Button} from 'semantic-ui-react';
 
 /*
 const pollsStyleLoc = {
@@ -153,15 +154,18 @@ render(){
         return (
             <div>
             <div id={formStyling}>
+                <strong><h3>Poll Creation For Location: </h3>
+                <Input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/>
                 <br/>
-                <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
-                Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
-                Enter Your Second Choice: <input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Choice Two" /><br/>
-                Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/><br/>
-                Enter Your Fourth Choice: <input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Choice Four"/><br/>
-                Enter Your Fifth Choice: <input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Choice Five"/><br/>
-            
-               <button onClick={this.handleSubmitToDatabase}>Create Your Poll!</button>
+                Enter your choices below!
+                <br/>
+                <Input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here" /><br/>
+                <Input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
+                <Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here"/><br/>
+                <Input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here"/><br/>
+                <Input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here"/><br/>
+                <br/>
+               <Button onClick={this.handleSubmitToDatabase}>Create Your Poll!</Button>
             </div>
             
             <RenderLocationPoll

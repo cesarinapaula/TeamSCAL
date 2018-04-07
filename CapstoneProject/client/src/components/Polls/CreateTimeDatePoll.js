@@ -2,7 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import '../../index.css';
 import RenderTimeDatePoll from './PollRenderingTime';
+import { Input, Button} from 'semantic-ui-react';
+
 /*
+
 const pollsStyleDT = {
     alignContent:"center",
     postion:"absolute", 
@@ -163,16 +166,20 @@ class CreateTimeAndDate extends React.Component{
 
         return (
             <div id={formStyling}>
-                <strong>Poll Creation For Date/Time: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
-                Enter Your First Choice: <input type='calendar' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
-                Enter Your Second Choice: <input type='calendar' name ="ChoiceTwo"onInput={this.handleChoice} placeholder="Choice Two" /><br/>
-                <label>Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/></label><br/>
-                <label>Enter Your Fourth Choice: <input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Choice Four"/></label><br/>
-                <label>Enter Your Five Choice: <input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
-                <label>Enter Your Sixth Choice: <input type='text' name ="ChoiceSix" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
-                <label>Enter Your Seventh Choice: <input type='text' name ="ChoiceSeven" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
-                <label>Enter Your Eighth Choice: <input type='text' name ="ChoiceEight" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
-                <button onClick={this.handleSubmit}>Submit Your Poll!</button>
+                <strong><h3>Poll Creation For Date/Time: </h3>
+                <Input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
+                Enter your choices below!
+                <br/>
+                <Input type='calendar' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here"  /><br/>
+                <Input type='calendar' name ="ChoiceTwo"onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
+                <label><Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here" /></label><br/>
+                <label><Input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here" /></label><br/>
+                <label><Input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here" /></label><br/>
+                <label><Input type='text' name ="ChoiceSix" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
+                <label><Input type='text' name ="ChoiceSeven" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
+                <label><Input type='text' name ="ChoiceEight" onInput={this.handleChoice} placeholder="Choice Five"/></label><br/>
+                <br/>
+                <Button onClick={this.handleSubmit}>Submit Your Poll!</Button>
                     
                 <RenderTimeDatePoll
                 pollStyle={pollStyling}
