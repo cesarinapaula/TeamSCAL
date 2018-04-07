@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-
+import CreateLocation from "./CreateLocationPoll";
+import '../../index.css';
+import moment from "moment"
 class Timer extends Component {
   state = {
     time: 0,
@@ -13,26 +15,25 @@ class Timer extends Component {
   };
 
   componentDidMount() {}
-
   submitEndDate = event => {
     event.preventDefault();
     this.setState({
-      endtime: new Date(this.state.endTimeInput),
+      endtime: new moment.parse((this.state.endTimeInput)),
       endTimeInput:""
     });
     setInterval(() => {
       this.updateClock();
     }, 500);
   };
-
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
+    const {timerStyling, timerStyle} = this.props;
     var { days, hours, minutes, seconds } = this.state;
     return (
-      <div>
+      <div id = {timerStyle}>
         <div>
           {" "}
           Timer <br />
@@ -81,5 +82,6 @@ class Timer extends Component {
     });
   };
 }
+
 
 export default Timer;
