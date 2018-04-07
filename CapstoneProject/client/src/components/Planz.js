@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Chatterbox from "./Chatterbox"
-import { Icon,Accordion,Grid,Button, Segment, Menu, Divider, Header, Step} from 'semantic-ui-react';
+import { Icon,Accordion,Button,Step} from 'semantic-ui-react';
 import CreateLocation from "./Polls/CreateLocationPoll"
 import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
 
@@ -30,6 +30,7 @@ render() {
 const { activeIndex } = this.state;
 
 return(
+<div className = "planz_page">
 <div className="ui container planz" style={{ width:'100%', height:'100%'}}>
 <header>
     <div id="Navbar">
@@ -44,21 +45,12 @@ return(
               <Button className ="ui inverted button">Register</Button>
             </div>  
           </div>
-
         </div>
-        <div className ="item">
-          <Button className ="ui inverted button">
-          <span> Register</span>
-          </Button>
-        </div>  
       </div>
     </div>
-  </div>
-</div>
-</header>
+  </header>
 <main>
-<div className ="ui container plan info"/>
-<h1 style={{textAlign:'center'}}>Plan Name</h1>
+<h1 style={{textAlign:'center'}}>Plan Name Goes Here</h1>
 <div className ="ui container planz info" >
 <Step.Group ordered>
     <Step>
@@ -83,8 +75,12 @@ return(
   </Step.Group>
 </div>
 <br/>
-<div className ="ui container poll" style={{textAlign:'center'}}>
-<div className ="poll accordian">
+<div className ="chat-poll">
+<div className="ui container chatterbox" >
+              <Chatterbox/>
+</div>
+<div className ="poll container" style={{textAlign:'center'}}>
+<div className ="poll accordian"style={{marginRight: '4em'}}>
 <Accordion styled>
         <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
           <Icon name='dropdown' />
@@ -107,17 +103,23 @@ return(
             {/* <div style={pollsStyle} >
             <h2>Decide on a Plan(polls)</h2>
             </div> */}
-<div className="ui container chatterbox" >
-              <Chatterbox/>
-</div>
 
+
+
+</div>
 </main>
+</div>
+<footer>
+  <div style={{backgroundColor:'#373738', height:'4em', width:'100%',fontSize:'15px' }} id="Footer">
+    <div className="item">
+    <a href="/"><span>About Us</span></a>
+    </div>
+  </div>
+</footer>
 </div>
 )
 }
 }
-
-
 
 
 

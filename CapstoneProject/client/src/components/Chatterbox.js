@@ -120,6 +120,7 @@ class Chatterbox extends Component {
   }
   
 
+
 render(){
   console.log(this.state)
 
@@ -156,11 +157,11 @@ render(){
         </form>
         <br />
         <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleButtonClick} id="clearchat">Clear Chat</Button>
+
       </div>
     </div>
   )
 }
-  
 
 }
 
@@ -185,6 +186,7 @@ render(){
 (function poll() {
 
   setInterval(function () {
+
     fetch('http://localhost:3001/')
       .then(function (response) {
         return response.json();
@@ -194,6 +196,7 @@ render(){
       })
       .catch(function (errhnd) {
         console.log("there's nothing to see here")
+
       });
   }, 10000);
 })();

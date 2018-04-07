@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
@@ -45,8 +45,9 @@ render() {
           <Redirect 
               to={{
               pathname: `/planz/${this.state.captureURL}`,
-              state: { redirect: false }            
-          
+              // // state: { redirect: false }            
+              // state: { }            
+                          
           }} 
           />
       )
@@ -89,7 +90,7 @@ return(
         </div>
         <br/>
         <div style={{textAlign:'center'}} className="submit_plan">
-        <Button style={{color:'black'}}inverted color="grey" size="big" onClick={this.handleSubmit}><Link to="/planz">Plan It!</Link></Button>
+        <Button style={{color:'black'}}inverted color="grey" size="big" onClick={this.handleSubmit}> Plan It!</Button>
         </div>
           <div className ="ui container doubling stackable two column grid">
             <div className ="two column row" style={{minHeight:'400px'}}>

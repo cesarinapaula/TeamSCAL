@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
 import Timer from "./Timer";
+import { Input, Button} from 'semantic-ui-react';
 
 /*
 const pollsStyleLoc = {
@@ -158,6 +159,8 @@ render(){
         return (
             <div>
             <div id={formStyling}>
+                <strong><h3>Poll Creation For Location: </h3>
+                <Input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/>
                 <br/>
                 <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
                 Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
@@ -170,6 +173,7 @@ render(){
                 Format time in military time and date as shown<br/>
                 <input type='text' name = "TimerCountdownLoc" onInput={this.handleChoice} placeholder="MM/DD/YY XX:XX"/><br/>
                 <button onClick={this.handleSubmitToDatabase}>Create Your Poll!</button>
+
             </div>
             
             <RenderLocationPoll
