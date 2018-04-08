@@ -28,7 +28,7 @@ finalanswer VARCHAR
 
 CREATE TABLE timedatepoll (
 id SERIAL PRIMARY KEY,
-uniqueurl_id INTEGER NOT NULL REFERENCES eventcreation(id)
+uniqueurl_id INTEGER NOT NULL REFERENCES eventcreation(id),
 choiceone VARCHAR,
 choicetwo VARCHAR,
 choicethree VARCHAR,
