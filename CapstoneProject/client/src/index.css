@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
+
 }
 
+main {
+  font-family: 'Nunito', sans-serif;
+
+}
 #root {
 background-image: url('https://i.imgur.com/78Jg5hj.png');
 background-size: cover;
 background-repeat: no-repeat;
 min-height: 1100px;
 }
-.chatterbox{
-  color:red;
- 
-  }
 
 .chatterlist{
     word-wrap: break-word;
@@ -33,16 +36,6 @@ min-height: 1100px;
   display: inline
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-.chatterbox{
-  color:red;
- 
-  }
-
   .chatterlist{
     word-wrap: break-word;
     overflow: auto;
@@ -54,14 +47,14 @@ body {
 }
 
 /* Asiya Css WILL HAVE TO EDIT THIS PLZ BEAR W ME */
-
+/* 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   width: 100%;
 
-}
+} */
 
 div {
   display: block;
@@ -104,7 +97,6 @@ div {
 .ui.menu {
   display: flex;
   margin: 1rem 0em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #ffffff;
   font-weight: normal;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -399,3 +391,5 @@ font-size: 50px;
 #h2About{
   font-size: 30px;
   }
+
+

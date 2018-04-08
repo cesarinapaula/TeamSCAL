@@ -50,7 +50,7 @@ return(
     </div>
   </header>
 <main>
-<h1 style={{textAlign:'center'}}>Plan Name Goes Here</h1>
+<h1 style={{textAlign:'center' }}>Plan Name Goes Here</h1>
 <div className ="ui container planz info" >
 <Step.Group ordered>
     <Step>
@@ -100,19 +100,13 @@ return(
         </Accordion>
 </div>
 </div>
-            {/* <div style={pollsStyle} >
-            <h2>Decide on a Plan(polls)</h2>
-            </div> */}
-
-
-
 </div>
 </main>
 </div>
 <footer>
-  <div style={{backgroundColor:'#373738', height:'4em', width:'100%',fontSize:'15px' }} id="Footer">
+  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px', marginTop:'130px' }} id="Footer">
     <div className="item">
-    <a href="/"><span>About Us</span></a>
+    <a href="/aboutus"><span>About Us</span></a>
     </div>
   </div>
 </footer>
