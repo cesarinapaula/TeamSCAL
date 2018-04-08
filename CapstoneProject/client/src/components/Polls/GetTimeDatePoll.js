@@ -6,15 +6,8 @@ class GetTimeDatePoll extends React.Component {
     constructor(){
         super();
         this.state = {
-            Question: '',
-            ChoiceOne: '',
-            ChoiceTwo: '',
-            ChoiceThree: '',
-            ChoiceFour: '',
-            ChoiceFive: '',
-            ChoiceSix: '',
-            ChoiceSeven: '',
-            ChoiceEight: '',
+            ChoiceOne: '', ChoiceTwo: '', ChoiceThree: '', ChoiceFour: '',
+            ChoiceFive: '', ChoiceSix: '', ChoiceSeven: '', ChoiceEight: '',
             
 //Selected and committed answer. Base value is going to help ensure that people only vote once.
             BaseValue: 0,
@@ -22,8 +15,9 @@ class GetTimeDatePoll extends React.Component {
             VoterAnswer: '',
             finalanswer: '',
 
-            uniquelink: "lkjfnnagwe"
-        };
+            uniqueurl: ''
+        }
+        this.props
     }
 
 //Thinking: front page generates unique link, passes down link {this.seState({id: link})}

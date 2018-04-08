@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import axios from 'axios';
+
 import Login from "./Login";
 import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
@@ -16,6 +18,7 @@ class Home extends Component {
     this.state = {
       redirect: false,
       captureURL: uuidURL,
+      eventName: ''
     }
   }
 
@@ -30,11 +33,24 @@ class Home extends Component {
     console.log(this.state);
   };
 
+
   handleSubmit=()=>{
+    axios
+    .post('http://localhost:3000/newevent',{
+      uniqueurl: this.state.captureURL,
+      eventname: this.state.eventName
+    })
+    .then(response=> {
     this.setState({
       redirect: true
     });
+    console.log('Event successfully created.');
+    })
+    .catch(function(err){
+      console.log(err);
+    });
   };
+
 
 render() {
   const { redirect } = this.state;
@@ -86,7 +102,7 @@ return(
         </div>
         <br/>
         <div style={{textAlign:'center'}} className="input">
-        <Input size="huge" placeholder="Enter plan name here"></Input>
+        <Input size="huge" placeholder="Enter plan name here" onInput={this.handleEventName}></Input>
         </div>
         <br/>
         <div style={{textAlign:'center'}} className="submit_plan">

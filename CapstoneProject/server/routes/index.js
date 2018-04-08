@@ -7,18 +7,26 @@ var router = express.Router();
 
 var pgp = require('pg-promise')({});
 var conStr = 'postgres://c4q:Queens!rocks';
-conStr += '@localhost:5432/capstoneproject';
+conStr += '@localhost:5432/planz';
 var db = pgp(conStr);
 
-//Convert into prepared statements.
+//ROUTES FOR PLANZ
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: `Planz' backend shit.` });
+//Creates new event, connected to homepage.
+router.post('/newevent', function(req,res,next){
+  db.none('INSERT INTO eventcreation (uniqueurl, eventname) VALUES ($1, $2)', [req.body.uniqueurl, req.body.eventname])
+  .then((data) => {
+    res.send(`created event for unique user: ${req.body.uniqueurl}`);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).send("error creating poll");
+});
 });
 
-//this is just to confirm that the table is working like it ought to.  Please don't do it.
-router.get('/all', function(req, res, next) {
-  db.any('SELECT * FROM polllocation')
+//This renders on compoundDidMount on Planz page to get both title and uniqueurl
+router.get('/eventanduniqueurl/:uniqueurl', function(req, res, next) {
+  db.any('SELECT uniqueurl, eventname FROM eventcreation WHERE uniqueurl=$1', [req.params.uniqueurl])
   .then(data => {
       res.send(data);
       console.log(data);
@@ -26,11 +34,11 @@ router.get('/all', function(req, res, next) {
   .catch(err=> console.log(err));
 });
 
-//Creates poll for time and date, need to update with uniquelink
-router.post('/createpolltimedate', function(req,res,next){
-  db.none(`INSERT INTO polltimeanddate (uniquelink, questiontimedate, choicetda, choicetdb, choicetdc, choicetdd, choicetde, choicetdf, choicetdg, choicetdh, answertda, answertdb, answertdc, answertdd, answertde, answertdf, answertde, answertdf, answertdg) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 0,0,0,0,0,0,0,0)`, [req.body.uniquelink, req.body.question1, req.body.choice1a, req.body.choice1b, req.body.choice1c,req.body.choice1d, req.body.choice1e, req.body.choice1f, req.body.choice1g, req.body.choice1h])
+//Creates poll for time and date
+router.post('/createtimedatepoll', function(req,res,next){
+  db.none(`INSERT INTO timedatepoll (uniqueurl_id, choiceone, choicetwo, choicethree, choicefour, choicefive, choicesix, choiceseven, choiceeight, answerone, answertwo, answerthree, answerfour, answerfive, answersix, answerseven, answereight) VALUES ((SELECT id FROM eventcreation WHERE uniqueurl='${req.body.uniqueurl}'), $1, $2, $3, $4, $5, $6, $7, $8, 0,0,0,0,0,0,0,0)`, [req.body.choiceone, req.body.choicetwo, req.body.choicethree,req.body.choicefour, req.body.choicefive, req.body.choicesix, req.body.choiceseven, req.body.choiceeight])
   .then((data) => {
-    res.send(`created poll: ${req.body.questiontimedate}`);
+    res.send(`created timedate poll for id: ${req.body.uniqueurl}`);
   })
   .catch(err => {
     console.log(err);
@@ -38,10 +46,10 @@ router.post('/createpolltimedate', function(req,res,next){
 });
 });
 //Creates poll for location
-router.post('/createpolllocation', function(req,res,next){
-  db.none(`INSERT INTO polllocation (uniquelink, questionlocation, choicelocationa, choicelocationb, choicelocationc, choicelocationd, choicelocatione, answerlocationa, answerlocationb, answerlocationc, answerlocationd, answerlocatione) VALUES ($1, $2, $3, $4, $5, $6, $7, 0, 0, 0, 0, 0)`, [req.body.uniquelink, req.body.question2, req.body.choice2a, req.body.choice2b, req.body.choice2c, req.body.choice2d, req.body.choice2e])
+router.post('/createlocationpoll', function(req,res,next){
+  db.none(`INSERT INTO locationpoll (uniqueurl_id, choiceone, choicetwo, choicethree, choicefour, choicefive, answerone, answertwo, answerthree, answerfour, answerfive) VALUES ((SELECT id FROM eventcreation WHERE uniqueurl='${req.body.uniqueurl}'), $1, $2, $3, $4, $5, 0,0,0,0,0)`, [req.body.choiceone, req.body.choicetwo, req.body.choicethree,req.body.choicefour, req.body.choicefive])
   .then((data)=>{
-    res.send(`created poll: ${req.body.question2}`);
+    res.send(`created locationpoll for id: ${req.body.uniqueurl}`);
   })
   .catch(err=>{
     console.log(err);
@@ -49,18 +57,18 @@ router.post('/createpolllocation', function(req,res,next){
   })
 });
 
-//this renders the primary/first poll
-router.get('/checkingtimedate/:uniquelink/', function (req, res, next){
-  db.any(`SELECT questiontimedate, choicetda, choicetdb, choicetdc, choicetdd, choicetde, choicetdf, choicetdh FROM polltimeanddate WHERE uniquelink = '${req.params.uniquelink}'`)
+//this renders the time and date poll
+router.get('/gettimedatepoll/:uniqueurl/', function (req, res, next){
+  db.any(`SELECT * FROM timedatepoll WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.params.uniqueurl])
   .then(data =>{
     res.send(data);
     console.log(data);
   })
   .catch(err=> console.log(err));
 });
-//this renders secondary polls, figure out null value in react, in this.state
-router.get('/checkinglocation/:uniquelink', function (req, res, next){
-  db.any(`SELECT questionlocation, choicelocationa, choicelocationb, choicelocationc, choicelocationd,choicelocatione FROM polllocation WHERE uniquelink = '${req.params.uniquelink}'`)
+//this renders location poll
+router.get('/getlocationpoll/:uniqueurl', function (req, res, next){
+  db.any(`SELECT * FROM locationpoll WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.params.uniqueurl])
   .then(data =>{
     res.send(data);
     console.log(data);
@@ -68,10 +76,9 @@ router.get('/checkinglocation/:uniquelink', function (req, res, next){
   .catch(err=> console.log(err));
 });
 
-//router.put is assuming that the id is always unique, maybe I should put a conditional to 
-//ensure that this will never run into a problem
-router.put('/votingtimeanddate/:uniquelink', function(req,res,next){
-  db.none(`UPDATE polltimeanddate SET ${req.body.voteranswer} = ${req.body.voteranswer} + 1 WHERE uniquelink='${req.params.uniquelink}'`)
+//submitting vote for time/date, this works for now, but rather have parameterized query for voteranswer, need to see if I could parse it properly.
+router.put('/votingtimedate/:uniqueurl', function(req,res,next){
+  db.none(`UPDATE timedatepoll SET "${req.body.voteranswer}" = "${req.body.voteranswer}" + 1 WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.params.uniqueurl])
   .then((data)=>{
     res.send(data);
   })
@@ -81,8 +88,9 @@ router.put('/votingtimeanddate/:uniquelink', function(req,res,next){
   });
 });
 
-router.put('/votinglocation/:uniquelink', function(req,res,next){
-  db.none(`UPDATE polllocation SET ${req.body.voteranswer} = ${req.body.voteranswer} + 1 WHERE uniquelink='${req.params.uniquelink}'`)
+//submitting vote for location, this works for now, but rather have parameterized query for voteranswer
+router.put('/votinglocation/:uniqueurl', function(req,res,next){
+  db.none(`UPDATE locationpoll SET "${req.body.voteranswer}"="${req.body.voteranswer}" + 1 WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, req.params.uniqueurl)  
   .then((data)=>{
     res.send(data);
   })
@@ -91,13 +99,31 @@ router.put('/votinglocation/:uniquelink', function(req,res,next){
     res.status(500).send("error inserting vote");
   });
 });
-//db.task perhaps for the following to update by 1 reduce 1
-router.put('/reducevotingtimedate/:uniquelink', function(req,res,next){
-  db.none(`UPDATE polltimeanddate SET ${req.body.voteranswer} = ${req.body.voteranswer} - 1 WHERE uniquelink='${req.params.uniquelink}'`)
+
+
+//for future implementation, if I don't have localstorage running by Sunday
+
+router.put('/reducevotingtimedate/:uniqueurl', function(req,res,next){
+  db.none(`UPDATE timedatepoll SET ${req.body.voteranswer} = ${req.body.voteranser} - 1 WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.body.uniqueurl])
+  .then((data)=>{
+    res.send(data);
+  })
+  .catch(err=>{
+    console.log(err);
+    res.status(500).send("error inserting vote");
+  });
+
 })
 
-router.put('/reducevotinglocation/:uniquelink', function(req,res,next){
-  db.none(`UPDATE polllocation SET ${req.body.voteranswer} = ${req.body.voteranswer} - 1 WHERE uniquelink='${req.params.uniquelink}'`)
+router.put('/reducevotinglocation/:uniqueurl', function(req,res,next){
+  db.none(`UPDATE locationpoll SET $1 = $1 - 1 WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$2)`, [req.body.voteranswer, req.body.uniqueurl])
+  .then((data)=>{
+    res.send(data);
+  })
+  .catch(err=>{
+    console.log(err);
+    res.status(500).send("error inserting vote");
+  });
 })
 
 module.exports = router;

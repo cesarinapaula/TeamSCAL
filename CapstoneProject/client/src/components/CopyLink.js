@@ -1,19 +1,22 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const copyURL = window.location.href;
+const copyURL = window.location.host;
 
 class CopyLink extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = { 
         copied: '',
-        whatsTheURL: copyURL 
+        whatsTheURL: copyURL + this.props.location.pathname
     };
     }
-
-      copyLink = (e) => {
+      componentDidMount=()=>{
+        console.log(this.state)
+      }
+      copyLink = (event) => {
         this.textArea.select();
         document.execCommand('copy');
         this.setState({ copied: 'Successfully copied! Now, go make Planz!'});
@@ -43,4 +46,4 @@ class CopyLink extends React.Component {
 
 }
 
-export default CopyLink;
+export default withRouter(CopyLink);
