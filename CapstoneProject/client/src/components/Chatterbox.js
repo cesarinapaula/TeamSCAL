@@ -1,29 +1,66 @@
 import React, { Component } from 'react';
+import { render } from "react-dom";
+import { withRouter } from 'react-router-dom';
 import $ from "jquery";
 import { Button, Input } from 'semantic-ui-react';
-import axios from "axios"
-import { render } from "react-dom";
+import axios from "axios";
 
 class Chatterbox extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      uniqueurl: this.props.location.pathname.slice(-32),
       chatMessages: [],
       name: "",
       message: ""
     }
-    console.log(this.state);
   }
 
+  componentDidMount() {
+  //  (function poll() {
+      setInterval(this.getChat, 10000);
+    }
+
+    getChat = () => {
+      axios
+          .get(`http://localhost:3000/conversations/89989a479971472eb6d81493d24d1817`)
+          .then(response=> {
+            this.setState({
+              chatMessages: response.data[0].array_agg
+            })
+           // console.log(response)
+          })
+          .catch(function (err) {
+            console.log("there's nothing to see here", err)
+          });
+    }
+    //})();  }
+
+
+  
   handleKeyPress = (event) => {
-    const {chatMessages} = this.state;
+    const {chatMessages, name, message, uniqueurl } = this.state;
+    const incomingmessage =  { name: $("#namebox").val(), message: event.target.value }
+
     if (event.key === 'Enter') {
-      const message =  { name: $("#namebox").val(), message: event.target.value }
+      //const incomingmessage =  { name: $("#namebox").val(), message: event.target.value }
       this.setState({
-        chatMessages: [...chatMessages, message]
+        chatMessages: [...chatMessages, incomingmessage]
       })
       event.target.value="";
-    }
+   
+    axios
+    .post(`http://localhost:3000/postmessage`, {
+      incomingmessage: incomingmessage,
+      uniqueurl: uniqueurl
+    })
+    .then(response=>{
+      console.log(response);
+    })
+    .catch(err=>{
+      console.log(err);
+    });
+  }
   }
 
   handleButtonClick = (event) => {
@@ -33,7 +70,7 @@ class Chatterbox extends Component {
   }
   
 render(){
-  console.log(this.state)
+  console.log("STATE: ", this.state)
 
   return (
     <div>
@@ -48,7 +85,7 @@ render(){
         </div>
         <form>
           <div className="row">
-            <div className="large-12 columns">
+            <div cssName="large-12 columns">
               <div className="row collapse prefix-radius">
                 <div className="small-4 columns">
                 </div>
@@ -74,19 +111,6 @@ render(){
   }
 }
 
-(function poll() {
-  setInterval(function () {
-    fetch('http://localhost:3001/')
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-      })
-      .catch(function (errhnd) {
-        console.log("there's nothing to see here")
-      });
-  }, 10000);
-})();
 
-export default Chatterbox;
+
+export default withRouter(Chatterbox);
