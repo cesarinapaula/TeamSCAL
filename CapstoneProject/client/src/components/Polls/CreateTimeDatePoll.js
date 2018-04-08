@@ -203,7 +203,7 @@ class CreateTimeAndDate extends React.Component{
     render(){
 
         const formStyling = (this.state.formHidden ? 'hidden' : 'appear');
-        const pollStyling = (this.state.pollHidden ? 'appear' : 'appear');
+        const pollStyling = (this.state.pollHidden ? 'hidden' : 'appear');
         const messageStyling = (this.state.message ? 'hidden' : 'appear');  
         const ChoiceThreeRender = (this.state.ChoiceThree === null ? 'hidden' : 'appear');
         const ChoiceFourRender = (this.state.ChoiceFour === null ? 'hidden' : 'appear');
