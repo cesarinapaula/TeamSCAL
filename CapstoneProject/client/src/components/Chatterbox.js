@@ -17,24 +17,38 @@ class Chatterbox extends Component {
 
   handleKeyPress = (event) => {
     const {chatMessages} = this.state;
+    // if (event.key === 'Enter') {
+    //   const message =  { name: $("#namebox").val(), message: event.target.value }
+    //   this.setState({
+    //     chatMessages: [...chatMessages, message]
+    //   })
+    //   event.target.value="";
+    // }
     if (event.key === 'Enter') {
       const message =  { name: $("#namebox").val(), message: event.target.value }
       this.setState({
         chatMessages: [...chatMessages, message]
       })
-      event.target.value="";
+      axios.post('/chatlist', {
+        name: this.state.name,
+        lastName: 'Flintstone'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
   }
-
-  handleButtonClick = (event) => {
+   
+    handleButtonClick = (event) => {
       this.setState({
         chatMessages: []
       })
-  }
+    }
   
-render(){
-  console.log(this.state)
-
+  render(){
   return (
     <div>
       <div className="wrapper">
@@ -70,23 +84,21 @@ render(){
         <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleButtonClick} id="clearchat">Clear Chat</Button>
       </div>
     </div>
-    )
+    )}
   }
-}
-
-(function poll() {
-  setInterval(function () {
-    fetch('http://localhost:3001/')
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-      })
-      .catch(function (errhnd) {
-        console.log("there's nothing to see here")
-      });
-  }, 10000);
-})();
-
-export default Chatterbox;
+    (function poll() {
+      setInterval(function () {
+        fetch('http://localhost:3001/')
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        })
+        .catch(function (errhnd) {
+          console.log("there's nothing to see here")
+        });
+      }, 10000);
+    })();  
+    
+export default Chatterbox

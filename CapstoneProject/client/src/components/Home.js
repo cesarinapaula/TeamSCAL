@@ -24,8 +24,8 @@ class Home extends Component {
         eventName: event.target.value
     });
   };
-
-
+  
+  
   componentDidMount=()=>{
     console.log(this.state);
   };
