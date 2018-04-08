@@ -11,7 +11,7 @@ class GetLocationPoll extends React.Component {
             SelectedValue: '',
             VoterAnswer: '',
             didInviteeVote: false,
-            uniquelink: ""
+            uniquelurl: ""
         };
     }
     //this.props.params.location
