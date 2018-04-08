@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from "react-dom";
 import { withRouter } from 'react-router-dom';
 import $ from "jquery";
 import { Button, Input } from 'semantic-ui-react';
@@ -36,8 +35,6 @@ class Chatterbox extends Component {
     }
     //})();  }
 
-
-  
   handleKeyPress = (event) => {
     const {chatMessages, name, message, uniqueurl } = this.state;
     const incomingmessage =  { name: $("#namebox").val(), message: event.target.value }
@@ -63,14 +60,13 @@ class Chatterbox extends Component {
   }
   }
 
-  handleButtonClick = (event) => {
+  handleClearChat = (event) => {
       this.setState({
         chatMessages: []
       })
   }
   
 render(){
-  console.log("STATE: ", this.state)
 
   return (
     <div>
@@ -104,7 +100,7 @@ render(){
           </div>
         </form>
         <br />
-        <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleButtonClick} id="clearchat">Clear Chat</Button>
+        <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleClearChat} id="clearchat">Clear Chat</Button>
       </div>
     </div>
     )
