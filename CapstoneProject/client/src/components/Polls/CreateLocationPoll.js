@@ -1,8 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
-import Timer from "./Timer";
 import { Input, Button} from 'semantic-ui-react';
 
 /*
@@ -20,37 +20,50 @@ const pollsStyleLoc = {
   }
 */
 class CreateLocation extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            QuestionInput: '',
-            SetQuestion: '',
-            ChoiceOne: '',
-            ChoiceTwo: '',
-            ChoiceThree: null,
-            ChoiceFour: null,
-            ChoiceFive: null,
-            uniquelink: 'lakern2314567abcdefghijklm',
-            SelectedValue: '',
-            VoterAnswer: '',
-            formHidden: false,
-            pollHidden: true,
-            timerHidden: true,
-            message: true,
-            BaseValue: 0,
-            TimerCountdownLoc:"",
+            ChoiceOne: '', ChoiceTwo: '', ChoiceThree: null, ChoiceFour: null, ChoiceFive: null,
+            AnswerOne: '', AnswerTwo: '', AnswerThree: '', AnswerFour: '', AnswerFive: '',
+            uniqueurl: this.props.location.pathname.slice(-32),
+            SelectedValue: '', VoterAnswer: '',
+            formHidden: false, pollHidden: true, message: true, didTheyVote: false,
+            TotalSum: 0, 
         };
     }
     
-
-    handleLocationQuestion = event => {
-        this.setState({
-            QuestionInput: event.target.value
+    componentDidMount=()=>{
+        axios.get(`http://localhost:3000/getlocationpoll/${this.state.uniqueurl}`)
+        .then(response => {
+            if(response.data.length === 0){
+                this.setState({
+                    formHidden: false,
+                    pollHidden: true
+                });
+            } else if(response.data.length > 0){
+                this.setState({
+                    formHidden: true,
+                    pollHidden: false,
+                    ChoiceOne: response.data[0].choiceone,
+                    ChoiceTwo: response.data[0].choicetwo,
+                    ChoiceThree: response.data[0].choicethree,
+                    ChoiceFour: response.data[0].choicefour,
+                    ChoiceFive: response.data[0].choicefive,
+                    AnswerOne: response.data[0].answerone,
+                    AnswerTwo: response.data[0].answertwo,
+                    AnswerThree: response.data[0].answerthree,
+                    AnswerFour: response.data[0].answerfour,
+                    AnswerFive: response.data[0].answerfive,
+                    TotalSum: (response.data[0].answerone) + (response.data[0].answertwo)
+                });
+                console.log(this.state)
+            }
+        })
+        .catch(err =>{
+            console.log(`didn't work`);
         });
-        console.log(this.state.QuestionInput);
     }
 
-    //reduce to handleChoice, event.target.name
     handleChoice = e => {
         this.setState({ 
             [e.target.name]: e.target.value 
@@ -58,35 +71,31 @@ class CreateLocation extends React.Component{
         console.log(this.state)
     }
   
-
     handleSubmitToDatabase = (event)=>{
         event.preventDefault();
-        /*
         axios
-        .post("http://localhost:3000/createpolllocation", {
-            uniquelink: this.state.uniquelink,
-            question2: this.state.QuestionInput,
-            choice2a: this.state.ChoiceOne,
-            choice2b: this.state.ChoiceTwo,
-            choice2c: this.state.ChoiceThree,
-            choice2d: this.state.ChoiceFour,
-            choice2e: this.state.ChoiceFive,
+        .post("http://localhost:3000/createlocationpoll", {
+            uniqueurl: this.state.uniqueurl,
+            choiceone: this.state.ChoiceOne,
+            choicetwo: this.state.ChoiceTwo,
+            choicethree: this.state.ChoiceThree,
+            choicefour: this.state.ChoiceFour,
+            choicefive: this.state.ChoiceFive,
         }
         )
         .then(response => {
-            console.log(response);  */
+            console.log(response);  
             this.setState({
                 formHidden: true,
-                pollHidden: false,
-                timerHidden:false
+                pollHidden: false
             });
-            console.log(this.state);        
-/*
+            console.log('it worked');        
+
         })
         .catch(function(err) {
             console.log(err);
         });   
-*/
+
     };
 
 handleSelect = (event)=>{
@@ -100,54 +109,53 @@ handleSubmitVote=()=>{
     console.log(this.state.SelectedValue);
     if(this.state.SelectedValue === this.state.ChoiceOne){
         this.setState({
-            VoterAnswer: "answerlocationa"
+            VoterAnswer: "answerone"
         });
         console.log(this.state);
     } else if(this.state.SelectedValue === this.state.ChoiceTwo){
         this.setState({
-            VoterAnswer: "answerlocationb"
+            VoterAnswer: "answertwo"
         });
         console.log(this.state);
     } else if(this.state.SelectedValue === this.state.ChoiceThree){
         this.setState({
-            VoterAnswer: "answerlocationc"
+            VoterAnswer: "answerthree"
         });
         console.log(this.state);
     } else if (this.state.SelectedValue === this.state.ChoiceFour){
         this.setState({
-            VoterAnswer: "answerlocationd"
+            VoterAnswer: "answerfour"
         });
         console.log(this.state);
     } else if (this.state.SelectedValue === this.state.ChoiceFive){
         this.setState({
-            VoterAnswer: "answerlocatione"
+            VoterAnswer: "answerfive"
         });
         console.log(this.state);
 }
 };
 
-    submitVote=()=>{
-/*    axios.put(`http://localhost:3000/votinglocation/${this.state.uniquelink}`, {
-        voteranswer: this.state.VoterAnswer
+submitVote=()=>{
+    axios.put(`http://localhost:3000/votinglocation/${this.state.uniqueurl}`, {
+    voteranswer: this.state.VoterAnswer
     })
     .then(response=>{
-        console.log(response);
-        console.log('inserted');  */
-        this.setState({
-            message: false,
-            BaseValue: this.state.BaseValue + 1
-        });
-    /*
-    })
-    .catch(err=>{
-        console.log(err);
-    }); */
-    };
-//<p> Would you like to submit, another disappear function.
-//this.handleNo = p= #id = disappear
+    console.log(response);
+    console.log('inserted');  
+    this.setState({
+        message: false,
+        BaseValue: this.state.BaseValue + 1,
+        didTheyVote: true
+    });
+    
+})
+.catch(err=>{
+    console.log(err);
+});
+};
 render(){
         const formStyling = (this.state.formHidden ? 'hidden' : 'appear');
-        const timerStyling = (this.state.timerHidden ? 'hidden' : 'appear');
+      //  const timerStyling = (this.state.timerHidden ? 'hidden' : 'appear');
         const pollStyling = (this.state.pollHidden ? 'hidden' : 'appear');
         const messageStyling = (this.state.message ? 'hidden' : 'appear');
         const ChoiceThreeRender = (this.state.ChoiceThree === null ? 'hidden' : 'appear');
@@ -178,7 +186,6 @@ render(){
             
             <RenderLocationPoll
                 pollStyle={pollStyling}
-                questionLocation={this.state.QuestionInput}
                     choiceOne={this.state.ChoiceOne}
                     choiceTwo={this.state.ChoiceTwo}
                     choiceThree={this.state.ChoiceThree}
@@ -199,4 +206,4 @@ render(){
         )
     }
 }
-export default CreateLocation;
+export default withRouter(CreateLocation);

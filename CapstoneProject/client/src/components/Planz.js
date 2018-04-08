@@ -1,5 +1,7 @@
-import React, { Component } from "react"
-import Chatterbox from "./Chatterbox"
+import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+import Chatterbox from "./Chatterbox";
 import { Icon,Accordion,Button,Step} from 'semantic-ui-react';
 import CreateLocation from "./Polls/CreateLocationPoll"
 import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
@@ -16,7 +18,31 @@ const pollsStyle = {
 }
 
 class Planz extends Component {
-state = { activeIndex: 0 }
+  constructor(props){
+    super(props);
+      this.state = {
+        activeIndex: 0, 
+        eventname: '',
+        uniqueurl: this.props.match.params.uniqueurl,
+        checkingurl: ''
+      };
+  }
+
+  componentDidMount=()=>{
+    axios
+    .get(`http://localhost:3000/eventanduniqueurl/${this.state.uniqueurl}`)
+    .then(response =>{
+      this.setState({
+        eventname: response.data[0].eventname,
+        checkingurl: response.data[0].uniqueurl
+      });
+      console.log(this.state)
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+    
+  }
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps
@@ -50,7 +76,7 @@ return(
     </div>
   </header>
 <main>
-<h1 style={{textAlign:'center' }}>Plan Name Goes Here</h1>
+<h1 style={{textAlign:'center'}}>{this.state.eventname}</h1>
 <div className ="ui container planz info" >
 <Step.Group ordered>
     <Step>
@@ -118,4 +144,4 @@ return(
 
 
 
-export default Planz;
+export default withRouter(Planz);
