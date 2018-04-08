@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import CreateLocation from "./CreateLocationPoll";
+//import CreateLocation from "./CreateLocationPoll";
 import '../../index.css';
-import moment from "moment"
+//import moment from "moment";
 class Timer extends Component {
   state = {
     time: 0,
@@ -15,10 +15,11 @@ class Timer extends Component {
   };
 
   componentDidMount() {}
+
   submitEndDate = event => {
     event.preventDefault();
     this.setState({
-      endtime: new moment.parse((this.state.endTimeInput)),
+   //   endtime: new moment.parse((this.state.endTimeInput)),
       endTimeInput:""
     });
     setInterval(() => {
