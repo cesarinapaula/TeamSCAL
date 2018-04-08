@@ -215,7 +215,9 @@ class CreateTimeAndDate extends React.Component{
         return (
             <div>
             <div id={formStyling}>
-                <h3>Enter your time and date choices below!</h3>
+                <strong><h3>Poll Creation For Date/Time: </h3>
+                <Input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong>
+                <h3>Enter your choices below!</h3>
                 <Input type='calendar' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here"  /><br/>
                 <Input type='calendar' name ="ChoiceTwo"onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
                 <label><Input type='calendar' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here" /></label><br/>
