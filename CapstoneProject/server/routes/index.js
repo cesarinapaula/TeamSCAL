@@ -36,7 +36,7 @@ router.get('/eventanduniqueurl/:uniqueurl', function(req, res, next) {
 
 //Creates poll for time and date
 router.post('/createtimedatepoll', function(req,res,next){
-  db.none(`INSERT INTO timedatepoll (uniqueurl_id, choiceone, choicetwo, choicethree, choicefour, choicefive, choicesix, choiceseven, choiceeight, answerone, answertwo, answerthree, answerfour, answerfive, answersix, answerseven, answereight) VALUES ((SELECT id FROM eventcreation WHERE uniqueurl=${req.body.uniqueurl}), $1, $2, $3, $4, $5, $6, $7, $8, 0,0,0,0,0,0,0,0))`, [req.body.choiceone, req.body.choicetwo, req.body.choicethree,req.body.choicefour, req.body.choicefive, req.body.choicesix, req.body.choiceseven, req.body.choiceeight])
+  db.none(`INSERT INTO timedatepoll (uniqueurl_id, choiceone, choicetwo, choicethree, choicefour, choicefive, choicesix, choiceseven, choiceeight, answerone, answertwo, answerthree, answerfour, answerfive, answersix, answerseven, answereight) VALUES ((SELECT id FROM eventcreation WHERE uniqueurl='${req.body.uniqueurl}'), $1, $2, $3, $4, $5, $6, $7, $8, 0,0,0,0,0,0,0,0)`, [req.body.choiceone, req.body.choicetwo, req.body.choicethree,req.body.choicefour, req.body.choicefive, req.body.choicesix, req.body.choiceseven, req.body.choiceeight])
   .then((data) => {
     res.send(`created timedate poll for id: ${req.body.uniqueurl}`);
   })
@@ -59,7 +59,7 @@ router.post('/createlocationpoll', function(req,res,next){
 
 //this renders the time and date poll
 router.get('/gettimedatepoll/:uniqueurl/', function (req, res, next){
-  db.any('SELECT choiceone, choicetwo, choicethree, choicefour, choicefive, choicesix, choiceseven, choiceeight FROM timedatepoll WHERE uniqueurl = (SELECT id FROM eventcreation WHERE uniqueurl=$1)', [req.body.uniqueurl])
+  db.any(`SELECT * FROM timedatepoll WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.params.uniqueurl])
   .then(data =>{
     res.send(data);
     console.log(data);
@@ -78,7 +78,7 @@ router.get('/getlocationpoll/:uniqueurl', function (req, res, next){
 
 //submitting vote for time/date, this works for now, but rather have parameterized query for voteranswer, need to see if I could parse it properly.
 router.put('/votingtimedate/:uniqueurl', function(req,res,next){
-  db.none(`UPDATE timedatepoll SET "${req.body.voteranswer}" = "${req.body.voteranswer} + 1 WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.body.uniqueurl])
+  db.none(`UPDATE timedatepoll SET "${req.body.voteranswer}" = "${req.body.voteranswer}" + 1 WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.params.uniqueurl])
   .then((data)=>{
     res.send(data);
   })
