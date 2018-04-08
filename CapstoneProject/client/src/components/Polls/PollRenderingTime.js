@@ -2,14 +2,14 @@ import React from 'react';
 import Timer from "./Timer";
 
 
-class RenderTimeDatePoll extends React.Component{
+export default class RenderTimeDatePoll extends React.Component{
     render(){
-        const { pollStyle, timerStyle, questionTimeDate, choiceOne, choiceTwo, choiceThree, choiceFour, choiceFive, choiceSix, choiceSeven, choiceEight, handleSelect, handleSubmit, submitVote, hiddenOrAppear3, hiddenOrAppear4, hiddenOrAppear5, hiddenOrAppear6, hiddenOrAppear7, hiddenOrAppear8} = this.props;
+        const { pollStyle, choiceOne, choiceTwo, choiceThree, choiceFour, choiceFive, choiceSix, choiceSeven, choiceEight, handleSelect, handleSubmit, submitVote, hiddenOrAppear3, hiddenOrAppear4, hiddenOrAppear5, hiddenOrAppear6, hiddenOrAppear7, hiddenOrAppear8} = this.props;
 
         return(
         <div>
             <div id={pollStyle}>
-                <p>Poll: {questionTimeDate}</p>
+                <p>Enter the time and date of your choice!</p>
                 <label><input type='radio' value={choiceOne} onChange={this.handleSelect}/>{choiceOne}</label><br/>
                 <label><input type='radio' value={choiceTwo} onChange={this.handleSelect}/>{choiceTwo}</label><br/>
                 <label id={hiddenOrAppear3}><input type='radio' value={choiceThree} onChange={handleSelect}/>{choiceThree}</label><br/>
@@ -29,4 +29,3 @@ class RenderTimeDatePoll extends React.Component{
     }
 }
 
-export default RenderTimeDatePoll;

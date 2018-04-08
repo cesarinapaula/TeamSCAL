@@ -169,7 +169,6 @@ render(){
             <div id={formStyling}>
                 <strong><h3>Enter Your Choices Below!</h3></strong>
                 <br/>
-                <strong>Poll Creation For Location: <input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/><br/>
                 Enter Your First Choice: <input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Choice One" /><br/>
                 Enter Your Second Choice: <input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Choice Two" /><br/>
                 Enter Your Third Choice: <input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Choice Three"/><br/>
