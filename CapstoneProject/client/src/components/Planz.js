@@ -5,7 +5,7 @@ import Chatterbox from "./Chatterbox";
 import { Icon,Accordion,Button,Step} from 'semantic-ui-react';
 import CreateLocation from "./Polls/CreateLocationPoll"
 import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
-
+import Timer from "./Polls/Timer"
 
 const pollsStyle = {
   alignContent:"center", 
@@ -123,6 +123,13 @@ return(
         <Accordion.Content active={activeIndex === 1}>
           <CreateTimeDatePoll/>
         </Accordion.Content>
+        <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
+          <Icon name='dropdown' />
+          Timer
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === 2}>
+          <Timer />
+        </Accordion.Content>
         </Accordion>
 </div>
 </div>
@@ -132,7 +139,9 @@ return(
 <footer>
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px', marginTop:'130px' }} id="Footer">
     <div className="item">
-    <a href="/aboutus"><span>About Us</span></a>
+  
+    <a href="/aboutus"><span style={{opacity:"0.5", textboxColor:"black"}}>About Us</span></a>
+    
     </div>
   </div>
 </footer>
