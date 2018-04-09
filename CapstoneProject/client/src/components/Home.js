@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
-
-import Login from "./Login";
-import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
+
 const uuidv4 = require('uuid/v4');
 const uuidURL = uuidv4().replace(/-/gi, '');
 
@@ -44,7 +42,6 @@ class Home extends Component {
     this.setState({
       redirect: true
     });
-    console.log('Event successfully created.');
     })
     .catch(function(err){
       console.log(err);
@@ -61,9 +58,6 @@ render() {
           <Redirect 
               to={{
               pathname: `/planz/${this.state.captureURL}`,
-              // // state: { redirect: false }            
-              // state: { }            
-                          
           }} 
           />
       )
@@ -76,7 +70,7 @@ return(
     <div id="Navbar">
       <div className ="ui inverted text attached menu">
         <div className ="ui container nav-wrapper">
-        <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/></a>
+        <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" alt='image' style={{width: '7em'}}/></a>
           <div className ="right menu">
             <div className ="item">
               <Button className ="ui inverted button"> Sign In</Button>

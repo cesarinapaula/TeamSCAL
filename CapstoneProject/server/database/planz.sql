@@ -51,7 +51,8 @@ finalanswer VARCHAR
 CREATE TABLE conversations (
 id SERIAL PRIMARY KEY,
 uniqueurl_id INTEGER NOT NULL REFERENCES eventcreation(id),
-messages VARCHAR
+username VARCHAR,
+messages VARCHAR,
 );
 
 CREATE TABLE deadline (
