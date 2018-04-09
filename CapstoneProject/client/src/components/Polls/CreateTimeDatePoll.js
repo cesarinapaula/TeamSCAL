@@ -4,19 +4,7 @@ import { withRouter } from 'react-router-dom';
 import '../../index.css';
 import RenderTimeDatePoll from './PollRenderingTime';
 import { Input, Button} from 'semantic-ui-react';
-/*
-const pollsStyleDT = {
-    alignContent:"center",
-    postion:"absolute", 
-    marginTop:'1vh', 
-    border:"solid",
-    width: "33%",
-  //   float: "",
-    marginRight:"33vw",
-    maxWidth:"40vw",
-    paddingBottom:"4vh" 
-  }
-*/
+
 class CreateTimeAndDate extends React.Component{
     constructor(props){
         super(props);
@@ -24,11 +12,11 @@ class CreateTimeAndDate extends React.Component{
             ChoiceOne: '',
             ChoiceTwo: '',
             ChoiceThree: '',
-            ChoiceFour: '',
-            ChoiceFive: '',
-            ChoiceSix: '',
-            ChoiceSeven: '',
-            ChoiceEight: '',
+            ChoiceFour: null,
+            ChoiceFive: null,
+            ChoiceSix: null,
+            ChoiceSeven: null,
+            ChoiceEight: null,
 
             AnswerOne: 0,
             AnswerTwo: 0,
@@ -201,11 +189,12 @@ class CreateTimeAndDate extends React.Component{
     };
 //decide between disabling fields until the previous has been filled, or just asking for more options.
     render(){
-
+        console.log(this.state)
+        
         const formStyling = (this.state.formHidden ? 'hidden' : 'appear');
         const pollStyling = (this.state.pollHidden ? 'hidden' : 'appear');
         const messageStyling = (this.state.message ? 'hidden' : 'appear');  
-        const ChoiceThreeRender = (this.state.ChoiceThree === null ? 'hidden' : 'appear');
+        const ChoiceThreeRender = (this.state.ChoiceThree === null  ? 'hidden' : 'appear');
         const ChoiceFourRender = (this.state.ChoiceFour === null ? 'hidden' : 'appear');
         const ChoiceFiveRender = (this.state.ChoiceFive === null ? 'hidden' : 'appear');
         const ChoiceSixRender = (this.state.ChoiceSix === null ? 'hidden' : 'appear');
@@ -215,15 +204,16 @@ class CreateTimeAndDate extends React.Component{
         return (
             <div>
             <div id={formStyling}>
-                <h3>Enter your time and date choices below!</h3>
-                <Input type='calendar' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here"  /><br/>
-                <Input type='calendar' name ="ChoiceTwo"onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
-                <label><Input type='calendar' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here" /></label><br/>
-                <label><Input type='calendar' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here" /></label><br/>
-                <label><Input type='calendar' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here" /></label><br/>
-                <label><Input type='calendar' name ="ChoiceSix" onInput={this.handleChoice} placeholder="Enter sixth choice here"/></label><br/>
-                <label><Input type='calendar' name ="ChoiceSeven" onInput={this.handleChoice} placeholder="Enter seventh choice here"/></label><br/>
-                <label><Input type='calendar' name ="ChoiceEight" onInput={this.handleChoice} placeholder="Enter eighth choice here"/></label><br/>
+                <strong><h3>Poll Creation For Date/Time: </h3></strong>
+                <h3>Enter your choices below!</h3>
+                <Input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here"  /><br/>
+                <Input type='text' name ="ChoiceTwo"onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
+                <label><Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here" /></label><br/>
+                <label><Input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here" /></label><br/>
+                <label><Input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here" /></label><br/>
+                <label><Input type='text' name ="ChoiceSix" onInput={this.handleChoice} placeholder="Enter sixth choice here"/></label><br/>
+                <label><Input type='text' name ="ChoiceSeven" onInput={this.handleChoice} placeholder="Enter seventh choice here"/></label><br/>
+                <label><Input type='text' name ="ChoiceEight" onInput={this.handleChoice} placeholder="Enter eighth choice here"/></label><br/>
                 <br/>
                 <Button onClick={this.handleSubmitToDatabase}>Submit Your Poll!</Button>
             </div>
@@ -248,6 +238,10 @@ class CreateTimeAndDate extends React.Component{
                     hiddenOrAppear7={ChoiceSevenRender}
                     hiddenOrAppear8={ChoiceEightRender}
                 />
+            <div>
+            <br/>
+            <p id={messageStyling}>You've selected: {this.state.SelectedValue}</p>
+            </div>
             </div>
 
             

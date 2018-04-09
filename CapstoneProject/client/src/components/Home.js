@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
-
-import Login from "./Login";
-import Planz from "./Planz";
 import { Button, Icon, Modal,Input,Responsive,Menu,Header } from 'semantic-ui-react';
+
 const uuidv4 = require('uuid/v4');
 const uuidURL = uuidv4().replace(/-/gi, '');
 
@@ -44,7 +42,6 @@ class Home extends Component {
     this.setState({
       redirect: true
     });
-    console.log('Event successfully created.');
     })
     .catch(function(err){
       console.log(err);
@@ -61,9 +58,6 @@ render() {
           <Redirect 
               to={{
               pathname: `/planz/${this.state.captureURL}`,
-              // // state: { redirect: false }            
-              // state: { }            
-                          
           }} 
           />
       )
@@ -76,7 +70,7 @@ return(
     <div id="Navbar">
       <div className ="ui inverted text attached menu">
         <div className ="ui container nav-wrapper">
-        <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" style={{width: '7em'}}/></a>
+        <a href="/"><img src= "https://i.imgur.com/bfxEfy6.png" alt='image' style={{width: '7em'}}/></a>
           <div className ="right menu">
             <div className ="item">
               <Button className ="ui inverted button"> Sign In</Button>
@@ -119,15 +113,15 @@ return(
     </div>
   </div>
   <div className ="ui fluid container" style={{backgroundColor:'#373738', width: '100%', height: '900px'}}>
-      <div className="ui container">
-      <h1 style={{textAlign:'center', color:'white', fontSize: '40px', lineHeight:'2em'}}>How It Works!</h1>
+      <div className="ui container" style={{fontSize:'40px'}}>
+      <h1 style={{textAlign:'center', color:'white', lineHeight:'2em'}}>How It Works!</h1>
         <div className="ui grid">
           <div className="middle aligned two column row">
             <div className ="middle aligned column">
           <img src="https://i.imgur.com/cBbyXiV.jpg" style={{float:'left', width:'200px',borderRadius:'50%'}}/>
             </div>
-          <div style={{color:'white'}}className="column">
-          <h2>Make Your Plans Into Planz</h2>
+          <div style={{color:'white', fontSize: '20px'}}className="column">
+          <h1>Make Your Plans Into Planz</h1>
           <p>Type your plan name and press the "Plan It" button. 
              You will be redirected to your Planz Page, where you can set up
              a poll, invite friends using your unique url, and also chat 
@@ -139,8 +133,8 @@ return(
           <div className ="middle aligned column">
           <img src="https://i.imgur.com/1jUOpkT.jpg" style={{ float:'left',width:'200px',borderRadius:'50%'}}/>
           </div>
-          <div style={{color:'white'}} className="column">
-          <h2>Create a Poll</h2>
+          <div style={{color:'white', fontSize: '20px'}} className="column">
+          <h1>Create a Poll</h1>
           <p> Use our polling feature to set a occasion/location, and the date 
             and time of the event. Set a timer on the poll to speed up the process
             of coming to a decision. Once the timer ends, and the votes are in, Planz information
@@ -151,8 +145,8 @@ return(
           <div className ="middle aligned column">
           <img src="https://i.imgur.com/vHr4ho1.jpg" style={{ float:'left',width:'200px',borderRadius:'50%'}}/>
           </div>
-          <div style={{color:'white'}} className="column">
-          <h2>Share with friends!</h2>
+          <div style={{color:'white', fontSize: '20px'}} className="column">
+          <h1>Share with friends!</h1>
           <p> Share your unique url to the people you wish to invite.
             By doing this you allow friends to add options for polls, and
             vote on them.</p>          
@@ -167,9 +161,9 @@ return(
           </div>
           
 </main>
-<div style={{backgroundColor:'#C9FEFF', height: '2px'}}></div>
+<div style={{backgroundColor: '#C6FEFE', height: '2px'}}></div>
 <footer>
-  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px'}} id="Footer">
+  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px' }} id="Footer">
     <div className="item">
     <a href="/aboutus"><span>About Us</span></a>
     </div>
