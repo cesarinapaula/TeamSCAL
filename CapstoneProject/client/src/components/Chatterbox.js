@@ -24,10 +24,10 @@ class Chatterbox extends Component {
       axios
           .get(`http://localhost:3000/conversations/89989a479971472eb6d81493d24d1817`)
           .then(response=> {
-            this.setState({
-              chatMessages: response.data[0].array_agg
-            })
-           // console.log(response)
+          //   this.setState({
+          //     chatMessages: response.data[0].array_agg
+          
+           console.log(response)
           })
           .catch(function (err) {
             console.log("there's nothing to see here", err)
