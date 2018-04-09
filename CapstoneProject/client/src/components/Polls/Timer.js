@@ -6,28 +6,104 @@ import moment from "moment"
 class Timer extends Component {
   state = {
     time: 0,
-    endtime: 0,
-    endTimeInput: "",
+    endtime: "",
+    endDateInput: "January 12 2019",
+    endDayInput: "",
+    endMonthInput: "",
+    endYearInput: "",
+    endHourInput: "",
+    endMinuteInput: "",
     seconds: 0,
     minutes: 0,
     hours: 0,
-    days: 0
+    days: 0,
+    availablemonths: [" Month ","January","February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    availabledays: [" Day "],
+    availableyears: [" Year "],
+    availablehours:[" Hour "],
+    availableminutes:[" Minutes "]
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.availablehours();
+    this.availableminutes();
+    this.availabledays();
+    this.availableyears();
+    console.log(this.state);
+  }
   submitEndDate = event => {
     event.preventDefault();
     this.setState({
-      endtime: new moment.parse((this.state.endTimeInput)),
-      endTimeInput:""
+      
+      endtime: new Date.parse(((this.state.endDateInput))),
+    
     });
+    console.log(this.state)
     setInterval(() => {
       this.updateClock();
-    }, 500);
+    }, 10000);
   };
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  availablehours = e =>{
+    let hoursArr = this.state.availablehours;
+
+    for(var i = 0; i<24; i++ ){
+      if (i===0){
+        hoursArr.push("12:00am Midnight")
+      }
+      else if(i<12){
+        hoursArr.push(i + ":00am")
+      }
+      else if(i===12){
+        hoursArr.push(i + ":00pm Noon")
+      }
+      else {
+        hoursArr.push((i-12) + ":00pm") 
+      }
+    this.setState({
+      availablehours: hoursArr
+      })
+    }
+  }
+  availableminutes = e =>{
+    let minutesArr = this.state.availableminutes;
+
+    for(var i = 0; i<60; i++ ){
+      if(i===0){
+        minutesArr.push("00")
+      }
+      else if(i%15===0){
+        minutesArr.push(i)
+    }
+  }
+    this.setState({
+      availableminutes: minutesArr
+    })
+  }
+  availabledays = e =>{
+    let daysArr = this.state.availabledays;
+
+    for(var i = 1; i<32; i++ ){
+      
+        daysArr.push(i)
+    }
+    this.setState({
+      availabledays: daysArr
+    })
+  }
+  availableyears = e =>{
+    let yearsArr = this.state.availableyears;
+
+    for(var i = 2018; i<2029; i++ ){
+       
+        yearsArr.push(i)
+    }
+    this.setState({
+      availableyears: yearsArr
+    })
+  }
 
   render() {
     const {timerStyling, timerStyle} = this.props;
@@ -36,41 +112,52 @@ class Timer extends Component {
       <div id = {timerStyle}>
         <div>
           {" "}
-          Timer <br />
-          Type in date and time when you'd like the poll to close.
+           <br />
+          Timer
+           <br />
           <br/>
+          Choose the Date and Time from the Drop Down Menus for your timer
           <br/>
-          <strong>Please use Military Time for most accurate timer</strong>
+          <br />
+        </div>
+        <div>
+          <span>Days left: {days} </span>
+          <br />
+          <span>Hours left: {hours} </span>
+          <br />
+          <span>Minutes left: {minutes} </span>
+          <br />
+          <span>Seconds left: {seconds} </span>
           <br />
           <br />
         </div>
         <div>
-          <span>Days: {days} </span>
-          <br />
-          <span>Hours: {hours} </span>
-          <br />
-          <span>Minutes: {minutes} </span>
-          <br />
-          <span>Seconds: {seconds} </span>
-          <br />
-        </div>
-        <div>
-          <form onSubmit={this.submitEndDate}>
-            <input
-              name="endTimeInput"
-              type="text area"
-              value={this.state.endTimeInput}
-              onChange={this.handleChange}
-              placeholder="MM/DD/YY XX:XX"
-              style = {{width: "25vw"}}
-            />
+            <form onSubmit={this.submitEndDate}>
+           <select value = {this.state.endHourInput} name = "endHourInput" onChange = {this.handleChange}>
+              {this.state.availablehours.map(x => <option> {x}</option>)} 
+            </select>
+           <select value = {this.state.endMinuteInput} name = "endMinuteInput" onChange = {this.handleChange}>
+              {this.state.availableminutes.map(x => <option> {x}</option>)} 
+            </select>
+            <br/>
+           <select value = {this.state.endMonthInput} name = "endMonthInput" onChange = {this.handleChange}>
+              {this.state.availablemonths.map(x => <option> {x}</option>)} 
+            </select>
+           <select value = {this.state.endDayInput} name = "endDayInput" onChange = {this.handleChange}>
+              {this.state.availabledays.map(x => <option> {x}</option>)} 
+            </select>
+            <select value = {this.state.endYearInput} name = "endYearInput" onChange = {this.handleChange}>
+              {this.state.availableyears.map(x => <option> {x}</option>)} 
+            </select>
+            <br/>
             <input type="submit" />
+            <br/>
+            <br/>
           </form>
         </div>
       </div>
     );
   }
-
   updateClock = () => {
     // +(1000*3600)
     var t = this.state.endtime - (Date.now());
@@ -82,6 +169,4 @@ class Timer extends Component {
     });
   };
 }
-
-
 export default Timer;
