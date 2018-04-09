@@ -175,11 +175,6 @@ render(){
                  <Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here"/><br/>
                  <Input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here"/><br/>
                 <Input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here"/><br/>
-                
-                <h3>Set a timer for your Poll:</h3><br/>
-                Format time in military time and date as shown<br/>
-                <Input type='text' name = "TimerCountdownLoc" onInput={this.handleChoice} placeholder="MM/DD/YY XX:XX"/><br/>
-                <br/>
                 <Button onClick={this.handleSubmitToDatabase}>Create Your Poll!</Button>
 
             </div>

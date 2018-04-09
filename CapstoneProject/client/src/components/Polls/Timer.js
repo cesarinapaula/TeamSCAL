@@ -22,7 +22,9 @@ class Timer extends Component {
     availableyears: [" Year "],
     availablehours:[" Hour "],
     hourunits:[],
-    availableminutes:[]
+    availableminutes:[],
+    appear:"appear",
+    disappear:"hidden"
   };
   componentDidMount() {
     this.availablehours();
@@ -38,9 +40,9 @@ class Timer extends Component {
     console.log("this is datecatcher:" + datecatcher)
     console.log("this is datecatcher type of: " + typeof(datecatcher))
     this.setState({
-      
+      disappear:"appear",
+      appear:"hidden",
       endtime: new Date(datecatcher)
-    
     });
     console.log(this.state)
     setInterval(() => {
@@ -113,17 +115,15 @@ class Timer extends Component {
     var { days, hours, minutes, seconds } = this.state;
     return (
       <div id = {timerStyle}>
-        <div>
+        <div id = {this.state.appear}>
           {" "}
-           <br />
-          Timer
            <br />
           <br/>
           Choose the Date and Time from the Drop Down Menus for your timer
           <br/>
           <br />
         </div>
-        <div>
+        <div id = {this.state.disappear}>
           <span>Days left: {days} </span>
           <br />
           <span>Hours left: {hours} </span>
@@ -134,7 +134,7 @@ class Timer extends Component {
           <br />
           <br />
         </div>
-        <div>
+        <div id = {this.state.appear}>
             <form onSubmit={this.submitEndDate}>
            <select value = {this.state.endHourInput} name = "endHourInput" onChange = {this.handleChange}>
             <option value="0">Hour</option><option value="1">01 </option><option value="2">02 </option><option value="3">03 </option>
@@ -177,6 +177,14 @@ class Timer extends Component {
       minutes: Math.floor((t / 1000 / 60) % 60),
       hours: Math.floor((t / (1000 * 60 * 60)) % 24),
       days: Math.floor(t / (1000 * 60 * 60 * 24))
+    })
+    }
+    else if(this.state.endHourInput==="Hour"||this.state.endMinuteInput==="Minute"){
+        this.setState({
+        days:0,
+        hours:0,
+        minutes:0,
+        seconds:0,
     })
     }
     else{
