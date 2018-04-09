@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import $ from "jquery";
 import { Button, Input } from 'semantic-ui-react';
-import axios from "axios"
-import { render } from "react-dom";
+import axios from "axios";
 
 class Chatterbox extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      uniqueurl: this.props.location.pathname.slice(-32),
       chatMessages: [],
       name: "",
-      message: ""
-    }
-    console.log(this.state);
+      message: "",
+      clearChatBox: false,
+    };
   }
 
   handleKeyPress = (event) => {
@@ -58,16 +59,16 @@ class Chatterbox extends Component {
         <div id="chatterBox3" class="messages">
           <li>Planz-Team: Chat about those Planz!</li>
           <li>Planz-Team: Or whatever else you're into</li>
-          {this.state.chatMessages.map(chatMessage => <li> {chatMessage.name} : {chatMessage.message} </li>)}
+  {this.state.chatMessages.map(chatMessage => <li> {chatMessage.username} : {chatMessage.messages} </li>)}
         </div>
         <form>
           <div className="row">
-            <div className="large-12 columns">
+            <div cssName="large-12 columns">
               <div className="row collapse prefix-radius">
                 <div className="small-4 columns">
                 </div>
                 <div className="small-8 columns">
-                  <Input inverted size={3} className="input chat" id="namebox" type="text" placeholder="Enter a Username" />
+                  <Input inverted size={3} className="input chat" id="namebox" type="text" onInput={this.handleUsername} placeholder="Enter a Username" />
                 </div>
               </div>
             </div>
@@ -81,24 +82,12 @@ class Chatterbox extends Component {
           </div>
         </form>
         <br />
-        <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleButtonClick} id="clearchat">Clear Chat</Button>
+        <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleClearChat} id="clearchat">Clear Chat</Button>
+        <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleReturnMessages} id="clearchat">Get All Messages</Button>
       </div>
     </div>
     )}
   }
-    (function poll() {
-      setInterval(function () {
-        fetch('http://localhost:3001/')
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);
-        })
-        .catch(function (errhnd) {
-          console.log("there's nothing to see here")
-        });
-      }, 10000);
-    })();  
-    
-export default Chatterbox
+
+export default withRouter(Chatterbox);
+  

@@ -158,7 +158,7 @@ render(){
       //  const timerStyling = (this.state.timerHidden ? 'hidden' : 'appear');
         const pollStyling = (this.state.pollHidden ? 'hidden' : 'appear');
         const messageStyling = (this.state.message ? 'hidden' : 'appear');
-        const ChoiceThreeRender = (this.state.ChoiceThree === null ? 'hidden' : 'appear');
+        const ChoiceThreeRender = (this.state.ChoiceThree === null  ? 'hidden' : 'appear');
         const ChoiceFourRender = (this.state.ChoiceFour === null ? 'hidden' : 'appear');
         const ChoiceFiveRender = (this.state.ChoiceFive === null ? 'hidden' : 'appear');
 
@@ -167,9 +167,7 @@ render(){
         return (
             <div>
             <div id={formStyling}>
-                <strong><h3>Poll Creation For Location: </h3>
-                <Input type='text' onInput={this.handleLocationQuestion} placeholder="Type Question Here"/></strong><br/>
-                <h3>Enter your choices below!</h3>
+                <strong><h3>Enter up to five locations</h3></strong>
                  <Input type='text' name ="ChoiceOne" onInput={this.handleChoice} placeholder="Enter first choice here" /><br/>
                  <Input type='text' name ="ChoiceTwo" onInput={this.handleChoice} placeholder="Enter second choice here" /><br/>
                  <Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here"/><br/>

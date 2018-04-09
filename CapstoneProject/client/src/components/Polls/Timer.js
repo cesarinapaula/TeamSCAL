@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import CreateLocation from "./CreateLocationPoll";
+//import CreateLocation from "./CreateLocationPoll";
 import '../../index.css';
-import moment from "moment"
+//import moment from "moment";
 class Timer extends Component {
   state = {
     time: 0,
@@ -40,9 +40,8 @@ class Timer extends Component {
     console.log("this is datecatcher:" + datecatcher)
     console.log("this is datecatcher type of: " + typeof(datecatcher))
     this.setState({
-      disappear:"appear",
-      appear:"hidden",
-      endtime: new Date(datecatcher)
+   //   endtime: new moment.parse((this.state.endTimeInput)),
+      endTimeInput:""
     });
     console.log(this.state)
     setInterval(() => {

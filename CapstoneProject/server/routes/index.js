@@ -124,6 +124,28 @@ router.put('/reducevotinglocation/:uniqueurl', function(req,res,next){
     console.log(err);
     res.status(500).send("error inserting vote");
   });
+});
+
+router.get('/conversations/:uniqueurl', function(req,res,next){
+  db.any(`SELECT username, messages FROM conversations WHERE uniqueurl_id=(SELECT id FROM eventcreation WHERE uniqueurl=$1)`, [req.params.uniqueurl])
+  .then(data=>{
+    res.send(data);
+  })
+  .catch(err=>{
+    console.log(err);
+    res.status(500).send("error getting messages");
+  });
+  });
+
+router.post('/postmessage/', function(req, res, next){
+  db.none(`INSERT INTO conversations (uniqueurl_id, messages, username) VALUES ((SELECT id FROM eventcreation WHERE uniqueurl=$1), $2, $3)`, [req.body.uniqueurl, req.body.message, req.body.username])
+  .then(data=>{
+    res.send(data);
+  })
+  .catch(err=>{
+    console.log(err);
+    res.status(500).send("error posting message");
+  })
 })
 
 module.exports = router;
