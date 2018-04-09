@@ -22,8 +22,9 @@ class Chatterbox extends Component {
 
     getChat = () => {
       axios
-          .get(`http://localhost:3000/conversations/89989a479971472eb6d81493d24d1817`)
+          .get(`http://localhost:3000/conversations/${this.state.uniqueurl}`)
           .then(response=> {
+            if(response.data.length ===)
           //   this.setState({
           //     chatMessages: response.data[0].array_agg
           
