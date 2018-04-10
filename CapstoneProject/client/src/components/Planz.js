@@ -137,7 +137,6 @@ return(
 </div>
 <br/>
 <br/>
-
 <div className="link share">
 <CopyLink/>
 </div>
@@ -155,7 +154,6 @@ return(
 )
 }
 }
-
 
 
 
