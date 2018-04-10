@@ -25,8 +25,8 @@ class Home extends Component {
         eventName: event.target.value
     });
   };
-
-
+  
+  
   componentDidMount=()=>{
     console.log(this.state);
   };
@@ -164,6 +164,7 @@ return(
 <div style={{backgroundColor: '#C6FEFE', height: '2px'}}></div>
 <footer>
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px',textAlign:'center' }} id="Footer">
+
     <div className="item">
       {''}
       {''}

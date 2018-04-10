@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Button} from 'semantic-ui-react';
 
 const copyURL = window.location.host;
 
@@ -24,19 +25,20 @@ class CopyLink extends React.Component {
 
       render() {
         return (
-          <div>
-     
+          <div style={{textAlign:'center'}}>
             <form>
-              Share Your Planz Link With Friends!<br/>  
-              <textarea
+              <h3>Share Your Unique PLanz Link With Friends!</h3> 
+              <div className = "textarea link">
+              <textarea style={{borderRadius:'0.3em', fontSize:'20px'}}
                 ref={(textarea) => this.textArea = textarea}
                 value={this.state.whatsTheURL}
               />
+              </div>
             </form>
             {
              document.queryCommandSupported('copy') &&
           <div>
-            <button onClick={this.copyLink}>Copy Link!</button> 
+            <Button inverted onClick={this.copyLink}>Copy Link!</Button> 
             <p>{this.state.copied}</p>
           </div>
             }
