@@ -8,9 +8,7 @@ class Chatterbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       uniqueurl: this.props.location.pathname.slice(-32),
-
       chatMessages: [],
       name: "",
       message: "",
@@ -19,7 +17,7 @@ class Chatterbox extends Component {
   }
 
     componentDidMount() {
-      setInterval(this.getChat, 510);
+      setInterval(this.getChat, 500);
     }
 
     handleUsername=(event)=>{
@@ -100,10 +98,10 @@ class Chatterbox extends Component {
           <div className="fBase-ico">
             <p><i className="fi-database small"></i>Powered by Planz</p>
           </div>
-        <div id="chatterBox3" class="messages">
+        <div id="chatterBox3" className="messages">
           <li>Planz-Team: Chat about those Planz!</li>
           <li>Planz-Team: Or whatever else you're into</li>
-  {this.state.chatMessages.map(chatMessage => <li> {chatMessage.username} : {chatMessage.messages} </li>)}
+  {this.state.chatMessages.map(chatMessage => <li> {chatMessage.username}: {chatMessage.messages} </li>)}
         </div>
         <form>
           <div className="row">
@@ -130,10 +128,8 @@ class Chatterbox extends Component {
         <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleReturnMessages} id="clearchat">Get All Messages</Button>
       </div>
     </div>
-    )}
+    )
   }
 
-
 export default withRouter(Chatterbox);
-  
 
