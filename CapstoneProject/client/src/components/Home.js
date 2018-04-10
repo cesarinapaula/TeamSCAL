@@ -162,10 +162,13 @@ return(
           
 </main>
 <div style={{backgroundColor: '#C6FEFE', height: '2px'}}></div>
-<footer id = "footer">
-  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px' }} id="Footer">
+<footer>
+  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px',textAlign:'center' }} id="Footer">
+
     <div className="item">
-    <a href="/aboutus"><span>About Us</span></a>
+      {''}
+      {''}
+    <a  href="/aboutus" ><span id='aboutus'>About Us</span></a> <p style={{textAlign:'center'}}>&#169; Planz</p>
     </div>
   </div>
 </footer>
