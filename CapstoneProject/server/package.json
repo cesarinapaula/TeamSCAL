@@ -15,8 +15,8 @@
     "jade": "~1.11.0",
     "jstransformer": "^1.0.0",
     "morgan": "~1.9.0",
-    "pg-promise": "^8.2.2",
+    "pg-promise": "^8.2.3",
     "pug": "^2.0.1",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "^2.4.5"
   }
 }
