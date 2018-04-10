@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Chatterbox from "./Chatterbox";
+import CopyLink from "./CopyLink";
 import { Icon,Accordion,Button,Step} from 'semantic-ui-react';
 import CreateLocation from "./Polls/CreateLocationPoll"
 import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
@@ -134,14 +135,19 @@ return(
 </div>
 </div>
 </div>
+<br/>
+<br/>
+
+<div className="link share">
+<CopyLink/>
+</div>
 </main>
 </div>
 <footer>
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px', marginTop:'130px' }} id="Footer">
     <div className="item">
   
-    <a href="/aboutus"><span style={{opacity:"0.5", textboxColor:"black"}}>About Us</span></a>
-    
+    <a href="/aboutus"><span style={{opacity:"0.5", textboxColor:"black"}}>About Us</span></a>  
     </div>
   </div>
 </footer>

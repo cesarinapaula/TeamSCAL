@@ -401,3 +401,14 @@ font-size: 50px;
   /* background:#999; */
 }
 
+/* timer dropdown  */
+
+.link.share{
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.textarea.link {
+  border-radius: 1em;
+}

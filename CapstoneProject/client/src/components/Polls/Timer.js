@@ -26,11 +26,6 @@ class Timer extends Component {
     appear:"appear",
     disappear:"hidden"
   };
-<<<<<<< HEAD
-
-  componentDidMount() {}
-
-=======
   componentDidMount() {
     this.availablehours();
     this.availableminutes();
@@ -39,21 +34,15 @@ class Timer extends Component {
     this.hourunits();
     console.log(this.state);
   }
->>>>>>> d6fb46bde0aee03c6e3ed785ee654da6a9ec399c
   submitEndDate = event => {
     let datecatcher = this.state.endMonthInput + " "+ this.state.endDayInput +" " +this.state.endYearInput
     event.preventDefault();
     console.log("this is datecatcher:" + datecatcher)
     console.log("this is datecatcher type of: " + typeof(datecatcher))
     this.setState({
-<<<<<<< HEAD
-   //   endtime: new moment.parse((this.state.endTimeInput)),
-      endTimeInput:""
-=======
       disappear:"appear",
       appear:"hidden",
       endtime: new Date(datecatcher)
->>>>>>> d6fb46bde0aee03c6e3ed785ee654da6a9ec399c
     });
     console.log(this.state)
     setInterval(() => {
@@ -134,18 +123,21 @@ class Timer extends Component {
           <br/>
           <br />
         </div>
-        <div id = {this.state.disappear}>
-          <span>Days left: {days} </span>
+        <div id = {this.state.disappear} style={{fontSize:"20px"}}>
+          <span>Days left : {days} </span>
           <br />
-          <span>Hours left: {hours} </span>
+          <br/>
+          <span>Hours left : {hours} </span>
           <br />
-          <span>Minutes left: {minutes} </span>
+          <br/>
+          <span>Minutes left : {minutes} </span>
           <br />
-          <span>Seconds left: {seconds} </span>
-          <br />
+          <br/>
+          <span>Seconds left : {seconds} </span>
           <br />
         </div>
         <div id = {this.state.appear}>
+        
             <form onSubmit={this.submitEndDate}>
            <select value = {this.state.endHourInput} name = "endHourInput" onChange = {this.handleChange}>
             <option value="0">Hour</option><option value="1">01 </option><option value="2">02 </option><option value="3">03 </option>

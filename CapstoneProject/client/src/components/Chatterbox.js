@@ -8,7 +8,7 @@ class Chatterbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uniqueurl: this.props.location.pathname.slice(-32),
+      // uniqueurl: this.props.location.pathname.slice(-32),
       chatMessages: [],
       name: "",
       message: "",
