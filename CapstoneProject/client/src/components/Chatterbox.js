@@ -8,7 +8,7 @@ class Chatterbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uniqueurl: this.props.location.pathname.slice(-32),
+      // uniqueurl: this.props.location.pathname.slice(-32),
       chatMessages: [],
       name: "",
       message: "",
@@ -128,9 +128,21 @@ class Chatterbox extends Component {
         <Button className="ui inverted tiny  tiny clear-chat" onClick={this.handleReturnMessages} id="clearchat">Get All Messages</Button>
       </div>
     </div>
-    )
+    )}
   }
-}
-
-export default withRouter(Chatterbox);
-  
+    (function poll() {
+      setInterval(function () {
+        fetch('http://localhost:3001/')
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        })
+        .catch(function (errhnd) {
+          console.log("there's nothing to see here")
+        });
+      }, 10000);
+    })();  
+    
+export default Chatterbox
