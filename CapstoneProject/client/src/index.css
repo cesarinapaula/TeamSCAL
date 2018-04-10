@@ -19,6 +19,9 @@ min-height: 1100px;
 }
 
 
+.fontsize{
+  font-size: 18px;
+}
 .chatterlist{
     word-wrap: break-word;
     overflow: auto;

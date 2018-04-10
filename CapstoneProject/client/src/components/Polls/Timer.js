@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import CreateLocation from "./CreateLocationPoll";
+//import CreateLocation from "./CreateLocationPoll";
 import '../../index.css';
-import moment from "moment"
 import {dropdown, button} from "semantic-ui-react";
 
 class Timer extends Component {
@@ -198,4 +197,5 @@ class Timer extends Component {
       }
     }
 }
+
 export default Timer;
