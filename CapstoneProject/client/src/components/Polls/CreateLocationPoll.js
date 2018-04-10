@@ -112,11 +112,13 @@ class CreateLocation extends React.Component{
         } else if (this.state.SelectedValue === this.state.ChoiceFour){
             this.setState({
                 VoterAnswer: "answerfour",
+                AnswerFour: this.state.AnswerFour + 1,
                 TotalSum: this.state.TotalSum + 1
             });
         } else if (this.state.SelectedValue === this.state.ChoiceFive){
             this.setState({
                 VoterAnswer: "answerfive",
+                AnswerFive: this.state.AnswerFive + 1,
                 TotalSum: this.state.TotalSum + 1
             });
             console.log(this.state);

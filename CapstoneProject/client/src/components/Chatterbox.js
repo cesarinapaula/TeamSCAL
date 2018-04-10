@@ -130,6 +130,6 @@ class Chatterbox extends Component {
     </div>
     )
   }
-
+}
 export default withRouter(Chatterbox);
 
