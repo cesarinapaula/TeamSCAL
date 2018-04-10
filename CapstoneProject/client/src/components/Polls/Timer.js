@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-//import CreateLocation from "./CreateLocationPoll";
+import CreateLocation from "./CreateLocationPoll";
 import '../../index.css';
-//import moment from "moment";
+import moment from "moment"
+import {dropdown, button} from "semantic-ui-react";
+
 class Timer extends Component {
   state = {
     time: 0,
@@ -40,8 +42,9 @@ class Timer extends Component {
     console.log("this is datecatcher:" + datecatcher)
     console.log("this is datecatcher type of: " + typeof(datecatcher))
     this.setState({
-   //   endtime: new moment.parse((this.state.endTimeInput)),
-      endTimeInput:""
+      disappear:"appear",
+      appear:"hidden",
+      endtime: new Date(datecatcher)
     });
     console.log(this.state)
     setInterval(() => {
@@ -135,31 +138,31 @@ class Timer extends Component {
         </div>
         <div id = {this.state.appear}>
             <form onSubmit={this.submitEndDate}>
-           <select value = {this.state.endHourInput} name = "endHourInput" onChange = {this.handleChange}>
+           <select value = {this.state.endHourInput} name = "endHourInput" onChange = {this.handleChange} class = "ui selection dropdown">
             <option value="0">Hour</option><option value="1">01 </option><option value="2">02 </option><option value="3">03 </option>
             <option value="4">04 </option><option value="5">05 </option><option value="6">06 </option><option value="7">07 </option>
             <option value="8">08 </option><option value="9">09 </option><option value="10">10 </option><option value="11">11 </option>
             <option value="12">12</option> 
             </select>
-           <select value = {this.state.endMinuteInput} name = "endMinuteInput" onChange = {this.handleChange}>
+           <select value = {this.state.endMinuteInput} name = "endMinuteInput" onChange = {this.handleChange} class = "ui selection dropdown">
               <option value = "0">Minutes</option>{this.state.availableminutes.map(x => <option> {x}</option>)} 
             </select>
-            <select value = {this.state.endampm} name = "endampm" onChange = {this.handleChange}>
-              <option value = "false">am</option> 
-              <option value = "true">pm</option> 
+            <select value = {this.state.endampm} name = "endampm" onChange = {this.handleChange} class = "ui selection dropdown">
+              <option value = "false">AM</option> 
+              <option value = "true">PM</option> 
             </select>
             <br/>
-           <select value = {this.state.endMonthInput} name = "endMonthInput" onChange = {this.handleChange}>
+           <select value = {this.state.endMonthInput} name = "endMonthInput" onChange = {this.handleChange} class = "ui selection dropdown">
               {this.state.availablemonths.map(x => <option> {x}</option>)} 
             </select>
-           <select value = {this.state.endDayInput} name = "endDayInput" onChange = {this.handleChange}>
+           <select value = {this.state.endDayInput} name = "endDayInput" onChange = {this.handleChange} class = "ui selection dropdown">
               {this.state.availabledays.map(x => <option> {x}</option>)} 
             </select>
-            <select value = {this.state.endYearInput} name = "endYearInput" onChange = {this.handleChange}>
+            <select value = {this.state.endYearInput} name = "endYearInput" onChange = {this.handleChange} class = "ui selection dropdown">
               {this.state.availableyears.map(x => <option> {x}</option>)} 
             </select>
             <br/>
-            <input type="submit" />
+            <input type="submit" class = "ui blue button" />
             <br/>
             <br/>
           </form>

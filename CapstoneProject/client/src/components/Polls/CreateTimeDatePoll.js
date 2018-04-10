@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import '../../index.css';
 import RenderTimeDatePoll from './PollRenderingTime';
-import { Input, Button} from 'semantic-ui-react';
+import { Input, button} from 'semantic-ui-react';
 
 class CreateTimeAndDate extends React.Component{
     constructor(props){
@@ -215,7 +215,7 @@ class CreateTimeAndDate extends React.Component{
                 <label><Input type='text' name ="ChoiceSeven" onInput={this.handleChoice} placeholder="Enter seventh choice here"/></label><br/>
                 <label><Input type='text' name ="ChoiceEight" onInput={this.handleChoice} placeholder="Enter eighth choice here"/></label><br/>
                 <br/>
-                <Button onClick={this.handleSubmitToDatabase}>Submit Your Poll!</Button>
+                <input type="button" class="ui blue button" onClick={this.handleSubmitToDatabase} value="Submit Your Poll!"/>
             </div>
 
                 <RenderTimeDatePoll

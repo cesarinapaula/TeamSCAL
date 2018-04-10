@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
-import { Input, Button} from 'semantic-ui-react';
+import { Input, button} from 'semantic-ui-react';
 
 /*
 const pollsStyleLoc = {
@@ -173,7 +173,8 @@ render(){
                  <Input type='text' name ="ChoiceThree" onInput={this.handleChoice} placeholder="Enter third choice here"/><br/>
                  <Input type='text' name ="ChoiceFour" onInput={this.handleChoice} placeholder="Enter fourth choice here"/><br/>
                 <Input type='text' name ="ChoiceFive" onInput={this.handleChoice} placeholder="Enter fifth choice here"/><br/>
-                <Button onClick={this.handleSubmitToDatabase}>Create Your Poll!</Button>
+                <br/>
+                <input type="button" class = "ui blue button" onClick={this.handleSubmitToDatabase} value="Create Your Poll!"/>
 
             </div>
             
