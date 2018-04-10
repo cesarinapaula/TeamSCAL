@@ -34,19 +34,15 @@ class Timer extends Component {
     this.availabledays();
     this.availableyears();
     this.hourunits();
-    console.log(this.state);
   }
   submitEndDate = event => {
     let datecatcher = this.state.endMonthInput + " "+ this.state.endDayInput +" " +this.state.endYearInput
     event.preventDefault();
-    console.log("this is datecatcher:" + datecatcher)
-    console.log("this is datecatcher type of: " + typeof(datecatcher))
     this.setState({
       disappear:"appear",
       appear:"hidden",
       endtime: new Date(datecatcher)
     });
-    console.log(this.state)
     setInterval(() => {
       this.updateClock();
     }, 500);
@@ -173,7 +169,6 @@ class Timer extends Component {
   updateClock = () => {
     if(this.state.endampm==="true"){
     var t = (this.state.endtime - (Date.now()))+(Number(this.state.endHourInput)*3600000)+(Number(this.state.endMinuteInput)*60000)+(12*60*60*1000)
-    // var t = (this.state.endtime - (Date.now()))
     this.setState({
       seconds: Math.floor((t / 1000) % 60),
       minutes: Math.floor((t / 1000 / 60) % 60),
@@ -191,7 +186,6 @@ class Timer extends Component {
     }
     else{
       var t = (this.state.endtime - (Date.now()))+(Number(this.state.endHourInput)*3600000)+(Number(this.state.endMinuteInput)*60000)
-      // var t = (this.state.endtime - (Date.now()))
       this.setState({
         seconds: Math.floor((t / 1000) % 60),
         minutes: Math.floor((t / 1000 / 60) % 60),

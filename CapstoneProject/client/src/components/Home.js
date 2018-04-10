@@ -165,7 +165,7 @@ return(
 <footer id = "footer">
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px' }} id="Footer">
     <div className="item">
-    <a href="/aboutus"><span>About Us</span></a>
+    <a><span></span></a>
     </div>
   </div>
 </footer>

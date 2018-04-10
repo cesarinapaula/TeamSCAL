@@ -140,7 +140,7 @@ return(
   <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px', marginTop:'130px' }} id="Footer">
     <div className="item">
   
-    <a href="/aboutus"><span style={{opacity:"0.5", textboxColor:"black"}}>About Us</span></a>
+    <a><span style={{opacity:"0.5", textboxColor:"black"}}></span></a>
     
     </div>
   </div>
