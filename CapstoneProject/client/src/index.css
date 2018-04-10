@@ -18,6 +18,7 @@ background-repeat: no-repeat;
 min-height: 1100px;
 }
 
+
 .chatterlist{
     word-wrap: break-word;
     overflow: auto;
@@ -290,9 +291,8 @@ img.ui.image {
   color: #ddd !important;
 }
 span {
-  background-color: white !important;
   border-color: white!important;
-  color: #252830 !important;
+  color: #95989c !important;
 }
 
 p {
@@ -391,5 +391,30 @@ font-size: 50px;
 #h2About{
   font-size: 30px;
   }
+#footer{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  /* height:30px;
+  width:100%; */
+  /* background:#999; */
+}
 
+/* timer dropdown  */
 
+.footer{
+ 
+  background-color:#373738;
+   height:4em;
+    font-size:15px;
+     margin-top:235px
+}
+.link.share{
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.textarea.link {
+  border-radius: 1em;
+}

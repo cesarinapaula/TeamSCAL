@@ -10,4 +10,8 @@ class ProgressBar extends React.Component {
     )
 }
 }
+<<<<<<< HEAD
 export default ProgressBar
+=======
+export default ProgressBar;
+>>>>>>> e3bc7fdb145b776a38927e5ed63eb61038e4a8e6
