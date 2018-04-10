@@ -8,7 +8,7 @@ class Chatterbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uniqueurl: this.props.location.pathname.slice(-32),
+      // uniqueurl: this.props.location.pathname.slice(-32),
       chatMessages: [],
       name: "",
       message: "",
@@ -16,46 +16,88 @@ class Chatterbox extends Component {
     };
   }
 
-  handleKeyPress = (event) => {
-    const {chatMessages} = this.state;
-    // if (event.key === 'Enter') {
-    //   const message =  { name: $("#namebox").val(), message: event.target.value }
-    //   this.setState({
-    //     chatMessages: [...chatMessages, message]
-    //   })
-    //   event.target.value="";
-    // }
-    if (event.key === 'Enter') {
-      const message =  { name: $("#namebox").val(), message: event.target.value }
-      this.setState({
-        chatMessages: [...chatMessages, message]
-      })
-      axios.post('/chatlist', {
-        name: this.state.name,
-        lastName: 'Flintstone'
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+    componentDidMount() {
+      setInterval(this.getChat, 510);
     }
-  }
-   
-    handleButtonClick = (event) => {
-      this.setState({
-        chatMessages: []
-      })
+
+    handleUsername=(event)=>{
+        this.setState({
+          name: event.target.value
+        });
+        console.log(this.state.name)
     }
+
+    getChat = () => {
+      if(this.state.clearChatBox){
+        return; 
+      }
+        axios
+          .get(`http://localhost:3000/conversations/${this.state.uniqueurl}`)
+          .then(response=> {
+            if(response.data.length < 1){
+              console.log('no messages yet')
+            }
+            this.setState({
+              chatMessages: response.data,
+          });
+          })
+          .catch(function (err) {
+            console.log("there's nothing to see here", err)
+          });
+      };
+      
+    postMessage = ()=> {
+      axios
+      .post(`http://localhost:3000/postmessage`, {
+        message: this.state.message,
+        username: this.state.name,
+        uniqueurl: this.state.uniqueurl
+      })
+      .then(response=>{
+        console.log(response.data);
+      })
+      .catch(err=>{
+        console.log(err);
+      });
+    }
+
+    handleKeyPress = (event) => {
+      const {chatMessages, name, message } = this.state;
+    
+      const incomingmessage =  { name: $("#namebox").val(), message: event.target.value }
+    
+      if (event.key === 'Enter') {
+      //const incomingmessage =  { name: $("#namebox").val(), message: event.target.value }
+        this.setState({
+          message: event.target.value,
+          chatMessages: [...chatMessages, incomingmessage],
+          clearChatBox: false
+        });
+        setTimeout(this.postMessage, 200);
+        event.target.value='';
+      }
+    }
+
+    handleClearChat = (event) => {
+      this.setState({
+        chatMessages: [],
+        clearChatBox: true
+      });
+    };
+
+    handleReturnMessages = (event) => {
+      this.setState({
+        clearChatBox: false
+      });
+    };
   
   render(){
-  return (
-    <div>
-      <div className="wrapper">
-        <div className="fBase-ico">
-          <p><i className="fi-database small"></i>Powered by Planz</p>
-        </div>
+    return (
+      <div>
+        <div className="wrapper">
+          <div className="fBase-ico">
+            <p><i className="fi-database small"></i>Powered by Planz</p>
+          </div>
         <div id="chatterBox3" class="messages">
           <li>Planz-Team: Chat about those Planz!</li>
           <li>Planz-Team: Or whatever else you're into</li>

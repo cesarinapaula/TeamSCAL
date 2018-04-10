@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Chatterbox from "./Chatterbox";
+import CopyLink from "./CopyLink";
 import { Icon,Accordion,Button,Step} from 'semantic-ui-react';
 import CreateLocation from "./Polls/CreateLocationPoll"
 import CreateTimeDatePoll from "./Polls/CreateTimeDatePoll"
@@ -133,6 +134,12 @@ return(
         </Accordion>
 </div>
 </div>
+</div>
+<br/>
+<br/>
+
+<div className="link share">
+<CopyLink/>
 </div>
 </main>
 </div>

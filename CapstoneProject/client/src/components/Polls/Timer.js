@@ -121,18 +121,21 @@ class Timer extends Component {
           <br/>
           <br />
         </div>
-        <div id = {this.state.disappear}>
-          <span>Days left: {days} </span>
+        <div id = {this.state.disappear} style={{fontSize:"20px"}}>
+          <span>Days left : {days} </span>
           <br />
-          <span>Hours left: {hours} </span>
+          <br/>
+          <span>Hours left : {hours} </span>
           <br />
-          <span>Minutes left: {minutes} </span>
+          <br/>
+          <span>Minutes left : {minutes} </span>
           <br />
-          <span>Seconds left: {seconds} </span>
-          <br />
+          <br/>
+          <span>Seconds left : {seconds} </span>
           <br />
         </div>
         <div id = {this.state.appear}>
+        
             <form onSubmit={this.submitEndDate}>
            <select value = {this.state.endHourInput} name = "endHourInput" onChange = {this.handleChange} class = "ui selection dropdown">
             <option value="0">Hour</option><option value="1">01 </option><option value="2">02 </option><option value="3">03 </option>
