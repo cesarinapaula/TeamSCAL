@@ -291,9 +291,8 @@ img.ui.image {
   color: #ddd !important;
 }
 span {
-  background-color: white !important;
   border-color: white!important;
-  color: #252830 !important;
+  color: #95989c !important;
 }
 
 p {
@@ -403,6 +402,13 @@ font-size: 50px;
 
 /* timer dropdown  */
 
+.footer{
+ 
+  background-color:#373738;
+   height:4em;
+    font-size:15px;
+     margin-top:235px
+}
 .link.share{
   display: flex;
   justify-content: center;

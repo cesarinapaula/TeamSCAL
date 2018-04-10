@@ -143,13 +143,15 @@ return(
 </div>
 </main>
 </div>
-<footer>
-  <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px', marginTop:'130px' }} id="Footer">
-    <div className="item">
-  
-    <a href="/aboutus"><span style={{opacity:"0.5", textboxColor:"black"}}>About Us</span></a>  
+<footer className='footer'>
+  {/* <div style={{backgroundColor:'#373738', height:'4em', fontSize:'15px', marginTop:'130px' }}> */}
+    <div className="item" style={{textAlign:'center'}}>
+    <a href="/aboutus"><span>About Us</span></a> 
+    {' '}
+    <p style={{textAlign:'center'}}>&#169; Planz</p>
+
     </div>
-  </div>
+  {/* </div> */}
 </footer>
 </div>
 )
