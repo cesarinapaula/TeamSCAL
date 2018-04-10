@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import '../../index.css';
 import RenderLocationPoll from './PollRenderingLocation';
-import { Input, Button } from 'semantic-ui-react';
+import { Input, button} from 'semantic-ui-react';
 import ProgressBar from './ProgressBar';
 
 class CreateLocation extends React.Component{
@@ -156,7 +156,7 @@ class CreateLocation extends React.Component{
                 <Input type='text' name ="ChoiceFour" id='fontsize' onInput={this.handleChoice} placeholder="Enter fourth choice here"/><br/>
                 <Input type='text' name ="ChoiceFive" id='fontsize' onInput={this.handleChoice} placeholder="Enter fifth choice here"/><br/>
                 <br/>
-                <Button onClick={this.handleSubmitToDatabase}>Create Your Poll!</Button>
+                <input type="button" class = "ui blue button" onClick={this.handleSubmitToDatabase} value="Create Your Poll!"/>
 
             </div>
             )
