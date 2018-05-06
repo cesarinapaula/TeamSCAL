@@ -1,14 +1,12 @@
-DROP DATABASE IF EXISTS planz;
-CREATE DATABASE planz;
+-- DROP DATABASE IF EXISTS planz;
+-- CREATE DATABASE planz;
 
-\c planz;
-
-
+-- \c planz;
 CREATE TABLE eventcreation (
 id SERIAL PRIMARY KEY,
 uniqueurl VARCHAR UNIQUE NOT NULL,
 eventname VARCHAR
-);
+);;
 
 CREATE TABLE locationpoll (
 id SERIAL PRIMARY KEY,
